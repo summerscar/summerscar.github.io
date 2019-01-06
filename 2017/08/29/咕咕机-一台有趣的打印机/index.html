@@ -1,0 +1,1283 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="daily,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="前些天看到了这个咕咕机，看起开很有趣，就搞了台玩玩，昨天刚到，也就是上手简单玩了一天  更新： 前阵子直接在node-red平台上封装了这个API，可以直接安装这个节点使用了，不需要调用后台了,机智如我node-red-contrib-memobirdtext">
+<meta name="keywords" content="daily">
+<meta property="og:type" content="article">
+<meta property="og:title" content="咕咕机-一台有趣的打印机">
+<meta property="og:url" content="http://summerscar.me/2017/08/29/咕咕机-一台有趣的打印机/index.html">
+<meta property="og:site_name" content="summerscar">
+<meta property="og:description" content="前些天看到了这个咕咕机，看起开很有趣，就搞了台玩玩，昨天刚到，也就是上手简单玩了一天  更新： 前阵子直接在node-red平台上封装了这个API，可以直接安装这个节点使用了，不需要调用后台了,机智如我node-red-contrib-memobirdtext">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://summerscar.me/images/guguji/01.jpg">
+<meta property="og:image" content="http://summerscar.me/images/guguji/08.jpg">
+<meta property="og:image" content="http://summerscar.me/images/guguji/09.jpg">
+<meta property="og:image" content="http://summerscar.me/images/guguji/10.jpg">
+<meta property="og:image" content="http://summerscar.me/images/guguji/11.jpg">
+<meta property="og:image" content="http://summerscar.me/images/guguji/12.jpg">
+<meta property="og:image" content="http://summerscar.me/images/guguji/04.jpg">
+<meta property="og:image" content="http://summerscar.me/images/guguji/05.jpg">
+<meta property="og:image" content="http://summerscar.me/images/guguji/06.jpg">
+<meta property="og:updated_time" content="2019-01-01T10:57:16.300Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="咕咕机-一台有趣的打印机">
+<meta name="twitter:description" content="前些天看到了这个咕咕机，看起开很有趣，就搞了台玩玩，昨天刚到，也就是上手简单玩了一天  更新： 前阵子直接在node-red平台上封装了这个API，可以直接安装这个节点使用了，不需要调用后台了,机智如我node-red-contrib-memobirdtext">
+<meta name="twitter:image" content="http://summerscar.me/images/guguji/01.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://summerscar.me/2017/08/29/咕咕机-一台有趣的打印机/">
+
+
+
+
+
+  <title>咕咕机-一台有趣的打印机 | summerscar</title>
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-100106686-2', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?f4920480d16ba0509e59aedc000fc3f4";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">summerscar</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">blog</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://summerscar.me/2017/08/29/咕咕机-一台有趣的打印机/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="summerscar">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="summerscar">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">咕咕机-一台有趣的打印机</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-29T12:08:57+08:00">
+                2017-08-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Daily/" itemprop="url" rel="index">
+                    <span itemprop="name">Daily</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/08/29/咕咕机-一台有趣的打印机/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/08/29/咕咕机-一台有趣的打印机/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <script src="/assets/js/APlayer.min.js"> </script><p>前些天看到了这个<a href="http://www.memobird.cn/" target="_blank" rel="noopener">咕咕机</a>，看起开很有趣，就搞了台玩玩，昨天刚到，也就是上手简单玩了一天</p>
+<hr>
+<p>更新： 前阵子直接在node-red平台上封装了这个API，可以直接安装这个节点使用了，不需要调用后台了,机智如我<br><a href="https://flows.nodered.org/node/node-red-contrib-memobirdtext" target="_blank" rel="noopener">node-red-contrib-memobirdtext</a></p>
+<hr>
+<a id="more"></a>
+<p>PS：昨天七夕，店家还送了很多虐狗的东西，而且官方宣传这小东西都是 情侣，传纸条 ？？ 是我对这东西理解错了么（手动黑人问号）</p>
+<h1 id="开箱"><a href="#开箱" class="headerlink" title="开箱"></a>开箱</h1><p><img src="/images/guguji/01.jpg" alt="开箱"></p>
+<p>差不多一只手的大小，可连接WIFI也可切换本地模式，连接手机热点，打印是会发出“咕~咕~”的声音~~<br>用的是热敏纸，4卷19rmb，还好吧，才买回来24小时不到，一卷纸快被我打完了</p>
+<h1 id="官方APP"><a href="#官方APP" class="headerlink" title="官方APP"></a>官方APP</h1><p>官方APP就不多说了，总之很方便，一键打印APP里各种内容，还有很多网友分享的，总之很丰富。<br>很多模板也很有用，但这些以后再说啦~</p>
+<h1 id="官方API"><a href="#官方API" class="headerlink" title="官方API"></a>官方API</h1><p>当然我的感兴趣的重点是官方的打印<a href="http://open.memobird.cn/" target="_blank" rel="noopener">API</a>啦，发了封邮件40分钟就回了，很顺利拿到了appkey</p>
+<p>虽然NPM上也有一些别人写的封装API，但看了看官方的文档，一个就仨接口，干脆自己撸算了,直接写在了koa里做个后台<br><a href="https://github.com/summerscar/memobird-api" target="_blank" rel="noopener">github.memobird-api</a></p>
+<h2 id="咕咕机类"><a href="#咕咕机类" class="headerlink" title="咕咕机类"></a>咕咕机类</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//post请求</span></span><br><span class="line">   getData (url, data) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">            axios.post(url, data)</span><br><span class="line">            .then(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">                <span class="keyword">if</span> (res.data.showapi_res_code === <span class="number">1</span>) &#123;</span><br><span class="line">                    <span class="built_in">console</span>.log(<span class="string">'异步请求ok'</span>)</span><br><span class="line">                    resolve(res.data)</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="built_in">console</span>.log(<span class="string">'失败! 原因：'</span>, res.data.showapi_res_error )</span><br><span class="line">                    reject(res.data)</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//初始化，绑定用户</span></span><br><span class="line">   <span class="keyword">async</span> init () &#123;</span><br><span class="line">       <span class="keyword">this</span>.initRes = <span class="keyword">await</span> <span class="keyword">this</span>.getData(url.account, <span class="keyword">this</span>.config) </span><br><span class="line">   &#125;</span><br><span class="line">   <span class="comment">//打印文字功能</span></span><br><span class="line">   <span class="keyword">async</span> printText (content) &#123;</span><br><span class="line">       <span class="built_in">console</span>.log(<span class="string">'printText开始'</span>)</span><br><span class="line">       <span class="keyword">let</span> Content = </span><br><span class="line">           <span class="string">`来自node平台</span></span><br><span class="line"><span class="string">           <span class="subst">$&#123;content&#125;</span></span></span><br><span class="line"><span class="string">           <span class="subst">$&#123;moment().format(<span class="string">'YYYY-MM-DD HH:mm:ss'</span>)&#125;</span>`</span></span><br><span class="line">       <span class="keyword">let</span> print = &#123;</span><br><span class="line">           timestamp: moment().format(<span class="string">'YYYY-MM-DD HH:mm:ss'</span>),</span><br><span class="line">           ak: <span class="keyword">this</span>.config.ak,</span><br><span class="line">           memobirdID: <span class="keyword">this</span>.config.memobirdID,</span><br><span class="line">           userID: <span class="keyword">this</span>.initRes.showapi_userid,</span><br><span class="line">           printcontent: <span class="string">`T:<span class="subst">$&#123;iconv.encode(Content, <span class="string">'gbk'</span>).toString(<span class="string">'base64'</span>)&#125;</span>`</span></span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">return</span> <span class="keyword">await</span> <span class="keyword">this</span>.getData(url.print, print)</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="comment">//打印图片功能</span></span><br><span class="line">   <span class="keyword">async</span> printImg (path) &#123;</span><br><span class="line">       <span class="built_in">console</span>.log(<span class="string">'printImg开始'</span>)</span><br><span class="line">       <span class="keyword">let</span> Content = </span><br><span class="line">           <span class="string">`T:<span class="subst">$&#123;iconv.encode(<span class="string">'来自node平台'</span>, <span class="string">'gbk'</span>).toString(<span class="string">'base64'</span>)&#125;</span>|<span class="subst">$&#123;<span class="keyword">await</span> <span class="keyword">this</span>.encodeImg(path)&#125;</span>|T:<span class="subst">$&#123;iconv.encode(moment().format(<span class="string">'YYYY-MM-DD HH:mm:ss'</span>), <span class="string">'gbk'</span>).toString(<span class="string">'base64'</span>)&#125;</span>`</span></span><br><span class="line">       <span class="keyword">let</span> print = &#123;</span><br><span class="line">           timestamp: moment().format(<span class="string">'YYYY-MM-DD HH:mm:ss'</span>),</span><br><span class="line">           ak: <span class="keyword">this</span>.config.ak,</span><br><span class="line">           memobirdID: <span class="keyword">this</span>.config.memobirdID,</span><br><span class="line">           userID: <span class="keyword">this</span>.initRes.showapi_userid,</span><br><span class="line">           printcontent: Content</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">return</span> <span class="keyword">await</span> <span class="keyword">this</span>.getData(url.print, print)</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//处理图片</span></span><br><span class="line">encodeImg (path) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">            gm(path).resize(<span class="number">384</span>).flip().type(<span class="string">'Bilevel'</span>).colors(<span class="number">2</span>).toBuffer(<span class="string">'bmp'</span>, (error, buffer) =&gt; &#123;</span><br><span class="line">                <span class="keyword">if</span> (error) &#123;</span><br><span class="line">                reject(error);</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                resolve(<span class="string">`P:<span class="subst">$&#123;buffer.toString(<span class="string">'base64'</span>)&#125;</span>`</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"> <span class="comment">//循环检测是否打印完成</span></span><br><span class="line">    <span class="keyword">async</span> status (id, time) &#123;</span><br><span class="line">        <span class="keyword">let</span> times = <span class="number">1</span></span><br><span class="line">        <span class="keyword">let</span> printflag = <span class="number">0</span></span><br><span class="line">        <span class="keyword">let</span> status = &#123;</span><br><span class="line">            timestamp: moment().format(<span class="string">'YYYY-MM-DD HH:mm:ss'</span>),</span><br><span class="line">            ak: <span class="keyword">this</span>.config.ak,</span><br><span class="line">            printcontentid: id</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">do</span> &#123;</span><br><span class="line">            <span class="keyword">await</span> <span class="keyword">this</span>.timeOut(time)</span><br><span class="line">            <span class="keyword">let</span> res = <span class="keyword">await</span> <span class="keyword">this</span>.getData(url.status, status)</span><br><span class="line">            printflag = res.printflag</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">`开始检测 第<span class="subst">$&#123;times&#125;</span>次  延时<span class="subst">$&#123;time&#125;</span>ms  <span class="subst">$&#123;printflag === <span class="number">1</span> ? <span class="string">'打印完成'</span> : <span class="string">'打印未完成'</span>&#125;</span>`</span>)</span><br><span class="line">            times++;</span><br><span class="line">            <span class="keyword">if</span>(times === <span class="number">6</span>)</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span> (printflag !== <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">return</span> printflag</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"> <span class="comment">//延时</span></span><br><span class="line">    timeOut (time = <span class="number">3000</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">let</span> timer = setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">                resolve(<span class="string">'延时完成'</span>)</span><br><span class="line">            &#125;, time)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="后台API接口"><a href="#后台API接口" class="headerlink" title="后台API接口"></a>后台API接口</h2><p>这边简单的功能写好了，然后在router里面写个接口就行了<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//router接口</span></span><br><span class="line">router.post(<span class="string">'/printText'</span>, <span class="keyword">async</span> (ctx, next) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> memobird = <span class="keyword">new</span> Memobird(&#123;<span class="attr">ak</span>: <span class="string">''</span>,<span class="attr">memobirdID</span>: <span class="string">''</span>,<span class="attr">useridentifying</span>: <span class="string">''</span>&#125;)</span><br><span class="line">  ctx.body = &#123;<span class="attr">code</span>:<span class="number">1</span>&#125;</span><br><span class="line">  memobird.init()</span><br><span class="line">  .then(<span class="function"><span class="params">()</span> =&gt;</span> memobird.printText(ctx.request.body.content))</span><br><span class="line">  .then( <span class="function"><span class="params">res</span> =&gt;</span> memobird.status(res.printcontentid, <span class="number">3000</span>))</span><br><span class="line">  .then(<span class="function"><span class="params">printflag</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'检测完成'</span>,printflag === <span class="number">1</span> ? <span class="string">'打印完成'</span> : <span class="string">'打印未完成'</span>)</span><br><span class="line">  &#125;)</span><br><span class="line">  .catch(<span class="function">(<span class="params">err</span>) =&gt;</span> &#123; </span><br><span class="line">    <span class="built_in">console</span>.log(err) </span><br><span class="line">    ctx.body = err</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">router.post(<span class="string">'/printImg'</span>, <span class="keyword">async</span> (ctx, next) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> memobird = <span class="keyword">new</span> Memobird(&#123;<span class="attr">ak</span>: <span class="string">''</span>,<span class="attr">memobirdID</span>: <span class="string">''</span>,<span class="attr">useridentifying</span>: <span class="string">''</span>&#125;)</span><br><span class="line">  ctx.body = &#123;<span class="attr">code</span>:<span class="number">1</span>&#125;</span><br><span class="line">  memobird.init() </span><br><span class="line">  .then( <span class="function"><span class="params">res</span> =&gt;</span> memobird.printImg(ctx.request.body.content))</span><br><span class="line">  .then( <span class="function"><span class="params">res</span> =&gt;</span> memobird.status(res.printcontentid, <span class="number">3000</span>))</span><br><span class="line">  .then(<span class="function"><span class="params">printflag</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'检测完成'</span>,printflag === <span class="number">1</span> ? <span class="string">'打印完成'</span> : <span class="string">'打印未完成'</span>)</span><br><span class="line">  &#125;)</span><br><span class="line">  .catch(<span class="function">(<span class="params">err</span>) =&gt;</span> &#123; </span><br><span class="line">    <span class="built_in">console</span>.log(err) </span><br><span class="line">    ctx.body = err</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>这样后台基本写完了，然后需要调用接口啦</p>
+<h1 id="神器node-red"><a href="#神器node-red" class="headerlink" title="神器node-red"></a>神器node-red</h1><p>之前一个大佬和我说了这个，试着玩了下，总之超牛逼的一个东西，完全的可视化编程，往下看就知道了</p>
+<h2 id="建几个定时任务"><a href="#建几个定时任务" class="headerlink" title="建几个定时任务"></a>建几个定时任务</h2><p><img src="/images/guguji/08.jpg" alt="node-red"></p>
+<h3 id="一言"><a href="#一言" class="headerlink" title="一言"></a>一言</h3><p><a href="https://sslapi.hitokoto.cn/" target="_blank" rel="noopener">一言API</a></p>
+<p>通过inject，建立定时任务，会定时触发后面的get请求,然后处理好返回的数据，然后发送post请求到我的后台服务器</p>
+<p><img src="/images/guguji/09.jpg" alt="node-red"></p>
+<p>这里function模块处理返回的数据，然后post请求到我的后台服务器</p>
+<h3 id="天气预报"><a href="#天气预报" class="headerlink" title="天气预报"></a>天气预报</h3><p><a href="https://www.heweather.com/" target="_blank" rel="noopener">和风天气API</a><br>这个也是一样啦，inject设定两个固定时间的触发，处理好请求地址，获取数据，处理发送给后台的数据</p>
+<p><img src="/images/guguji/10.jpg" alt="node-red"></p>
+<h3 id="其他任务"><a href="#其他任务" class="headerlink" title="其他任务"></a>其他任务</h3><p>当然还有很多有趣的模块，email模块尝试了下qq和163总有些小问题，还有teitter，facebook的模块但有堵墙，最最重要的！！！这个个物联网的可视化平台，是用来监测硬件的（很可惜，我手上没这些东西，到时候搞个树莓派玩玩），任何监测信息都可以直接连接这台小打印机，直接打印输出！！！</p>
+<h2 id="UI部分"><a href="#UI部分" class="headerlink" title="UI部分"></a>UI部分</h2><p>node-red还带一个ui界面<br><img src="/images/guguji/11.jpg" alt="node-red"><br>两条简单的流程图，text输入后触发post请求到后台就行啦</p>
+<p><img src="/images/guguji/12.jpg" alt="node-red"><br>生成的前端页面</p>
+<h1 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h1><p>以下效果都是通过node后台打出来的，自带APP打出来的总体要美观很多啦</p>
+<p><img src="/images/guguji/04.jpg" alt="node-red"></p>
+<p><img src="/images/guguji/05.jpg" alt="node-red"></p>
+<p><img src="/images/guguji/06.jpg" alt="node-red"></p>
+<h1 id="后期其他功能"><a href="#后期其他功能" class="headerlink" title="后期其他功能"></a>后期其他功能</h1><p>现在只能文本，图片分开来打印，过些天我试下多项内容的打印功能</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/daily/" rel="tag"># daily</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/23/Vue路由相关/" rel="next" title="vue路由相关">
+                <i class="fa fa-chevron-left"></i> vue路由相关
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/09/08/node小爬虫/" rel="prev" title="node小爬虫">
+                node小爬虫 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="summerscar">
+            
+              <p class="site-author-name" itemprop="name">summerscar</p>
+              <p class="site-description motion-element" itemprop="description">不会日语的up主不是一个好程序猿</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">51</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/summerscar" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://weibo.com/5508256828" target="_blank" title="Weibo">
+                      
+                        <i class="fa fa-fw fa-globe"></i>Weibo</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:shen.yus@163.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://space.bilibili.com/5248611/" target="_blank" title="BILIBILI">
+                      
+                        <i class="fa fa-fw fa-globe"></i>BILIBILI</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#开箱"><span class="nav-number">1.</span> <span class="nav-text">开箱</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#官方APP"><span class="nav-number">2.</span> <span class="nav-text">官方APP</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#官方API"><span class="nav-number">3.</span> <span class="nav-text">官方API</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#咕咕机类"><span class="nav-number">3.1.</span> <span class="nav-text">咕咕机类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#后台API接口"><span class="nav-number">3.2.</span> <span class="nav-text">后台API接口</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#神器node-red"><span class="nav-number">4.</span> <span class="nav-text">神器node-red</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#建几个定时任务"><span class="nav-number">4.1.</span> <span class="nav-text">建几个定时任务</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一言"><span class="nav-number">4.1.1.</span> <span class="nav-text">一言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#天气预报"><span class="nav-number">4.1.2.</span> <span class="nav-text">天气预报</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他任务"><span class="nav-number">4.1.3.</span> <span class="nav-text">其他任务</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UI部分"><span class="nav-number">4.2.</span> <span class="nav-text">UI部分</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#效果"><span class="nav-number">5.</span> <span class="nav-text">效果</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#后期其他功能"><span class="nav-number">6.</span> <span class="nav-text">后期其他功能</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">summerscar</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a></div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=62548480";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://summerscar.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://summerscar.me/2017/08/29/咕咕机-一台有趣的打印机/';
+          this.page.identifier = '2017/08/29/咕咕机-一台有趣的打印机/';
+          this.page.title = '咕咕机-一台有趣的打印机';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://summerscar.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/love.js"></script>
+  
+<div id="hexo-helper-live2d">
+  <canvas id="live2dcanvas" width="150" height="300"></canvas>
+</div>
+<style>
+  #live2dcanvas{
+    position: fixed;
+    width: 150px;
+    height: 300px;
+    opacity:0.9;
+    right: 50px;
+    z-index: 999;
+    pointer-events: none;
+    bottom: -30px;
+  }
+</style>
+<script type="text/javascript" src="/live2d/device.min.js"></script>
+<script type="text/javascript">
+const loadScript = function loadScript(c,b){var a=document.createElement("script");a.type="text/javascript";"undefined"!=typeof b&&(a.readyState?a.onreadystatechange=function(){if("loaded"==a.readyState||"complete"==a.readyState)a.onreadystatechange=null,b()}:a.onload=function(){b()});a.src=c;document.body.appendChild(a)};
+(function(){
+  if((typeof(device) != 'undefined') && (device.mobile())){
+    document.getElementById("live2dcanvas").style.width = '75px';
+    document.getElementById("live2dcanvas").style.height = '150px';
+  }else
+    if (typeof(device) === 'undefined') console.error('Cannot find current-device script.');
+  loadScript("/live2d/script.js", function(){loadlive2d("live2dcanvas", "/live2d/assets/makoto0.model.json", 0.5);});
+})();
+</script>
+
+</body>
+</html>

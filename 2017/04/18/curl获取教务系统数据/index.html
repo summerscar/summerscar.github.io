@@ -1,0 +1,1288 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="php,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="5.30更新查询课程表需添加字段 $loginParams[&amp;#39;TextBox1&amp;#39;] = $password;查询成绩..还没搞定..不想搞了..反正这学期也差不多了妈的 一学期教务系统改好几次，有病啊  前言 获取验证码时需保存cookie，提交验证码时要一同提交 提交验证码时还需要获取网页内的_viewstate的值（据观察这个值是每天变化一次的）">
+<meta name="keywords" content="php">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Curl获取教务系统数据">
+<meta property="og:url" content="http://summerscar.me/2017/04/18/curl获取教务系统数据/index.html">
+<meta property="og:site_name" content="summerscar">
+<meta property="og:description" content="5.30更新查询课程表需添加字段 $loginParams[&amp;#39;TextBox1&amp;#39;] = $password;查询成绩..还没搞定..不想搞了..反正这学期也差不多了妈的 一学期教务系统改好几次，有病啊  前言 获取验证码时需保存cookie，提交验证码时要一同提交 提交验证码时还需要获取网页内的_viewstate的值（据观察这个值是每天变化一次的）">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://www.summerscar.com/myCollege/03.png">
+<meta property="og:image" content="http://www.summerscar.com/myCollege/04.png">
+<meta property="og:updated_time" content="2019-01-01T10:57:16.259Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Curl获取教务系统数据">
+<meta name="twitter:description" content="5.30更新查询课程表需添加字段 $loginParams[&amp;#39;TextBox1&amp;#39;] = $password;查询成绩..还没搞定..不想搞了..反正这学期也差不多了妈的 一学期教务系统改好几次，有病啊  前言 获取验证码时需保存cookie，提交验证码时要一同提交 提交验证码时还需要获取网页内的_viewstate的值（据观察这个值是每天变化一次的）">
+<meta name="twitter:image" content="http://www.summerscar.com/myCollege/03.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://summerscar.me/2017/04/18/curl获取教务系统数据/">
+
+
+
+
+
+  <title>Curl获取教务系统数据 | summerscar</title>
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-100106686-2', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?f4920480d16ba0509e59aedc000fc3f4";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">summerscar</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">blog</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://summerscar.me/2017/04/18/curl获取教务系统数据/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="summerscar">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="summerscar">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Curl获取教务系统数据</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-18T22:19:22+08:00">
+                2017-04-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Code/" itemprop="url" rel="index">
+                    <span itemprop="name">Code</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/04/18/curl获取教务系统数据/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/04/18/curl获取教务系统数据/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <script src="/assets/js/APlayer.min.js"> </script><h2 id="5-30更新"><a href="#5-30更新" class="headerlink" title="5.30更新"></a>5.30更新</h2><p>查询课程表需添加字段 <code>$loginParams[&#39;TextBox1&#39;] = $password;</code><br>查询成绩..还没搞定..不想搞了..反正这学期也差不多了<br>妈的 一学期教务系统改好几次，有病啊</p>
+<hr>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><ol>
+<li>获取验证码时需保存cookie，提交验证码时要一同提交</li>
+<li>提交验证码时还需要获取网页内的_viewstate的值（据观察这个值是每天变化一次的）<a id="more"></a></li>
+<li><p>post所需要提交的字段</p>
+<ul>
+<li><p>课程表</p>
+<ul>
+<li>$loginParams[‘__VIEWSTATE’] = $getview[0];</li>
+<li>$loginParams[‘txtUserName’] = $user;</li>
+<li>$loginParams[‘TextBox2’] = $password;</li>
+<li>$loginParams[‘txtSecretCode’] = $code;</li>
+<li>$loginParams[‘RadioButtonList1’] = ‘学生’;</li>
+<li>$loginParams[‘Button1’] = ‘’;</li>
+<li>$loginParams[‘lbLanguage’] = ‘’;</li>
+<li>$loginParams[‘hidPdrs’] = ‘’;</li>
+<li>$loginParams[‘hidsc’] = ‘’;</li>
+</ul>
+</li>
+<li><p>成绩</p>
+<ul>
+<li>$logParams[‘__VIEWSTATE’] = $res[0];</li>
+<li>$logParams[‘ddlXN’] =$xuenian;</li>
+<li>$logParams[‘ddlXQ’] =$xueqi;</li>
+<li>$logParams[‘Button1’] = “按学期查询”;</li>
+<li>$logParams[‘txtQSCJ’]=”0”;</li>
+<li>$logParams[‘txtZZCJ’]=”100”;</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="调用函数部分"><a href="#调用函数部分" class="headerlink" title="调用函数部分"></a>调用函数部分</h2><h3 id="变量初始化"><a href="#变量初始化" class="headerlink" title="变量初始化"></a>变量初始化</h3><figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$act=<span class="string">''</span>;</span><br><span class="line">$xuenian=<span class="string">""</span>;</span><br><span class="line">$xueqi=<span class="string">""</span>;</span><br><span class="line">$user = <span class="string">''</span>;<span class="comment">//用户名</span></span><br><span class="line">$password = <span class="string">''</span>;<span class="comment">//密码</span></span><br><span class="line"><span class="class"><span class="keyword">define</span></span>(<span class="string">'SCRIPT_ROOT'</span>,dirname(__FILE__).<span class="string">'/'</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="curl封装函数"><a href="#curl封装函数" class="headerlink" title="curl封装函数"></a>curl封装函数</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">curl_request</span><span class="params">($url,$post=<span class="string">''</span>,$cookie=<span class="string">''</span>, $returnCookie=<span class="number">0</span>)</span></span>&#123;</span><br><span class="line">    $curl = curl_init();</span><br><span class="line">    curl_setopt($curl, CURLOPT_URL, $url);</span><br><span class="line">    curl_setopt($curl, CURLOPT_USERAGENT, <span class="string">'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0)'</span>);</span><br><span class="line">    curl_setopt($curl, CURLOPT_FOLLOWLOCATION, <span class="number">1</span>);</span><br><span class="line">    curl_setopt($curl, CURLOPT_AUTOREFERER, <span class="number">1</span>);</span><br><span class="line">    curl_setopt($curl, CURLOPT_REFERER, <span class="string">"http://XXX"</span>);</span><br><span class="line">    <span class="keyword">if</span>($post) &#123;</span><br><span class="line">        curl_setopt($curl, CURLOPT_POST, <span class="number">1</span>);</span><br><span class="line">        curl_setopt($curl, CURLOPT_POSTFIELDS, http_build_query($post));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>($cookie) &#123;</span><br><span class="line">        curl_setopt($curl, CURLOPT_COOKIE, $cookie);</span><br><span class="line">    &#125;</span><br><span class="line">    curl_setopt($curl, CURLOPT_HEADER, $returnCookie);</span><br><span class="line">    curl_setopt($curl, CURLOPT_TIMEOUT, <span class="number">10</span>);</span><br><span class="line">    curl_setopt($curl, CURLOPT_RETURNTRANSFER, <span class="number">1</span>);</span><br><span class="line">    $data = curl_exec($curl);</span><br><span class="line"></span><br><span class="line">    curl_close($curl);</span><br><span class="line">    <span class="keyword">if</span>($returnCookie)&#123;</span><br><span class="line">        <span class="keyword">list</span>($header, $body) = explode(<span class="string">"\r\n\r\n"</span>, $data, <span class="number">2</span>);</span><br><span class="line">        preg_match_all(<span class="string">"/Set\-Cookie:([^;]*);/"</span>, $header, $matches);</span><br><span class="line">        $info[<span class="string">'cookie'</span>]  = substr($matches[<span class="number">1</span>][<span class="number">0</span>], <span class="number">1</span>);</span><br><span class="line">        $info[<span class="string">'content'</span>] = $body;</span><br><span class="line">        <span class="keyword">return</span> $info;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> $data;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="获取-viewstate函数"><a href="#获取-viewstate函数" class="headerlink" title="获取_viewstate函数"></a>获取_viewstate函数</h3><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function getView()&#123;</span><br><span class="line"></span><br><span class="line">    <span class="variable">$url</span> = 'http:<span class="comment">//jwxt.jit.edu.cn/default2.aspx';</span></span><br><span class="line">    <span class="variable">$result</span> =curl_request(<span class="variable">$url</span>);</span><br><span class="line">    <span class="variable">$pattern</span> = '/&lt;<span class="keyword">input</span> <span class="keyword">type</span>=<span class="string">"hidden"</span> name=<span class="string">"__VIEWSTATE"</span> value=<span class="string">"(.*?)"</span> \/&gt;/is';</span><br><span class="line">    preg_match_all(<span class="variable">$pattern</span>, <span class="variable">$result</span>, <span class="variable">$matches</span>);</span><br><span class="line">    <span class="variable">$res</span>[0] = <span class="variable">$matches</span>[1][0];</span><br><span class="line">    <span class="comment">// print_r($res);</span></span><br><span class="line">    <span class="keyword">return</span> <span class="variable">$res</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="获取验证码"><a href="#获取验证码" class="headerlink" title="获取验证码"></a>获取验证码</h2><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">showAuthcode('http<span class="symbol">://jwxt</span>.jit.edu.cn/CheckCode.aspx')<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<h3 id="获取验证码图片"><a href="#获取验证码图片" class="headerlink" title="获取验证码图片"></a>获取验证码图片</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">showAuthcode</span><span class="params">( $authcode_url )</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    $cookieFile = SCRIPT_ROOT.<span class="string">'cookie.tmp'</span>;</span><br><span class="line">    $ch = curl_init($authcode_url);</span><br><span class="line">    curl_setopt($ch,CURLOPT_COOKIEJAR, $cookieFile); <span class="comment">// 把返回来的cookie信息保存在文件中</span></span><br><span class="line">    curl_setopt($ch, CURLOPT_HEADER, <span class="number">0</span>);</span><br><span class="line">    curl_setopt($ch, CURLOPT_REFERER, <span class="string">''</span>);</span><br><span class="line">    curl_setopt($ch, CURLOPT_USERAGENT, <span class="string">'Baiduspider'</span>);</span><br><span class="line">    curl_setopt($ch, CURLOPT_RETURNTRANSFER, <span class="number">1</span>);</span><br><span class="line">    $content =curl_exec($ch);</span><br><span class="line">    header(<span class="string">'Content-type: image/jpeg'</span>);</span><br><span class="line">    print_r( $content);</span><br><span class="line">    <span class="comment">//var_dump($cookieFile);</span></span><br><span class="line">    curl_close($ch);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="读取课程表"><a href="#读取课程表" class="headerlink" title="读取课程表"></a>读取课程表</h2><h3 id="调用函数"><a href="#调用函数" class="headerlink" title="调用函数"></a>调用函数</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"> <span class="variable">$getview</span>=getView();  <span class="regexp">//</span>执行获取viewstate</span><br><span class="line"><span class="regexp">//</span> print_r(<span class="variable">$getview</span>[<span class="number">0</span>]);</span><br><span class="line"> <span class="variable">$user</span>=trim(<span class="variable">$_REQUEST</span>[<span class="string">'username'</span>]);</span><br><span class="line"> <span class="variable">$password</span>=trim(<span class="variable">$_REQUEST</span>[<span class="string">'password'</span>]);</span><br><span class="line"> <span class="variable">$code</span> = trim(<span class="variable">$_REQUEST</span>[<span class="string">'code'</span>]);</span><br><span class="line"> <span class="regexp">//</span> <span class="variable">$loginParams</span>为curl模拟登录时post的参数</span><br><span class="line"> <span class="variable">$loginParams</span>[<span class="string">'__VIEWSTATE'</span>] = <span class="variable">$getview</span>[<span class="number">0</span>];</span><br><span class="line"> <span class="variable">$loginParams</span>[<span class="string">'txtUserName'</span>] = <span class="variable">$user</span>;</span><br><span class="line"> <span class="variable">$loginParams</span>[<span class="string">'TextBox2'</span>] = <span class="variable">$password</span>;</span><br><span class="line"> <span class="variable">$loginParams</span>[<span class="string">'txtSecretCode'</span>] = <span class="variable">$code</span>;</span><br><span class="line"> <span class="variable">$loginParams</span>[<span class="string">'RadioButtonList1'</span>] = <span class="string">'学生'</span>;</span><br><span class="line"> <span class="variable">$loginParams</span>[<span class="string">'Button1'</span>] = <span class="string">''</span>;</span><br><span class="line"> <span class="variable">$loginParams</span>[<span class="string">'lbLanguage'</span>] = <span class="string">''</span>;</span><br><span class="line"> <span class="variable">$loginParams</span>[<span class="string">'hidPdrs'</span>] = <span class="string">''</span>;</span><br><span class="line"> <span class="variable">$loginParams</span>[<span class="string">'hidsc'</span>] = <span class="string">''</span>;</span><br><span class="line"><span class="regexp">//</span> <span class="variable">$cookieFile</span> 为加载验证码时保存的cookie文件名</span><br><span class="line"> <span class="variable">$cookieFile</span> = SCRIPT_ROOT.<span class="string">'cookie.tmp'</span>;</span><br><span class="line"> <span class="regexp">//</span> <span class="variable">$targetUrl</span> curl 提交的目标地址</span><br><span class="line"> <span class="variable">$targetUrl</span> = <span class="string">'http://jwxt.jit.edu.cn/default2.aspx'</span>;</span><br><span class="line"> <span class="regexp">//</span> 参数重置</span><br><span class="line"> <span class="variable">$content</span> = curlLogin(<span class="variable">$targetUrl</span>, <span class="variable">$cookieFile</span>, <span class="variable">$loginParams</span>);</span><br><span class="line"> echo <span class="variable">$content</span>;</span><br><span class="line"> <span class="keyword">break</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="获取课程表函数"><a href="#获取课程表函数" class="headerlink" title="获取课程表函数"></a>获取课程表函数</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">curlLogin</span><span class="params">($url, $cookieFile, $loginParams)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">global</span> $user;</span><br><span class="line">    <span class="keyword">global</span> $password;</span><br><span class="line">    $ch = curl_init($url);</span><br><span class="line">    curl_setopt($ch,CURLOPT_COOKIEFILE, $cookieFile); <span class="comment">//同时发送Cookie</span></span><br><span class="line">    curl_setopt($ch,CURLOPT_RETURNTRANSFER, <span class="number">1</span>);<span class="comment">//设定返回的数据是否自动显示</span></span><br><span class="line">    curl_setopt($ch, CURLOPT_HEADER, <span class="number">0</span>);<span class="comment">//设定是否显示头信 息</span></span><br><span class="line">    curl_setopt($ch, CURLOPT_NOBODY, <span class="keyword">false</span>);<span class="comment">//设定是否输出页面 内容</span></span><br><span class="line">    curl_setopt($ch,CURLOPT_POST, <span class="number">1</span>);</span><br><span class="line">    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, <span class="number">1</span>);</span><br><span class="line">    curl_setopt($ch,CURLOPT_POSTFIELDS, $loginParams); <span class="comment">//提交查询信息</span></span><br><span class="line">    curl_exec($ch);<span class="comment">//返回结果</span></span><br><span class="line">    curl_close($ch); <span class="comment">//关闭</span></span><br><span class="line">    $curl2=curl_init();</span><br><span class="line">    curl_setopt ($curl2,CURLOPT_REFERER,<span class="string">'http://jwxt.jit.edu.cn/xs_main.aspx?xh='</span>.$user);</span><br><span class="line">    curl_setopt($curl2, CURLOPT_COOKIEFILE, $cookieFile);</span><br><span class="line">    curl_setopt($curl2, CURLOPT_HEADER, <span class="keyword">false</span>);</span><br><span class="line">    curl_setopt($curl2, CURLOPT_RETURNTRANSFER, <span class="keyword">true</span>);</span><br><span class="line">    curl_setopt($curl2, CURLOPT_TIMEOUT, <span class="number">20</span>);</span><br><span class="line">    curl_setopt($curl2, CURLOPT_AUTOREFERER, <span class="keyword">true</span>);</span><br><span class="line">    curl_setopt($curl2, CURLOPT_FOLLOWLOCATION, <span class="keyword">true</span>);</span><br><span class="line">    curl_setopt($curl2, CURLOPT_URL, <span class="string">'http://jwxt.jit.edu.cn/xskbcx.aspx?xh='</span>.$user);<span class="comment">//登陆后要从哪个页面获取信息</span></span><br><span class="line">    $en_contents=mb_convert_encoding( curl_exec($curl2),<span class="string">'utf-8'</span>, <span class="keyword">array</span>(<span class="string">'Unicode'</span>,<span class="string">'ASCII'</span>,<span class="string">'GB2312'</span>,<span class="string">'GBK'</span>,<span class="string">'UTF-8'</span>));</span><br><span class="line">    <span class="comment">//print_r($en_contents);</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    preg_match_all(<span class="string">'/&lt;span id="Label[^&gt;]*&gt;(.*)&lt;\/span&gt;/isU'</span>,$en_contents,$out);</span><br><span class="line">    </span><br><span class="line">  </span><br><span class="line">    $student = explode(<span class="string">'：'</span>, $out[<span class="number">1</span>][<span class="number">6</span>]);</span><br><span class="line">    $studentInfo[<span class="number">0</span>] = $student[<span class="number">1</span>];</span><br><span class="line">    $student = explode(<span class="string">'：'</span>, $out[<span class="number">1</span>][<span class="number">5</span>]);</span><br><span class="line">    $studentInfo[<span class="number">1</span>] = $student[<span class="number">1</span>];</span><br><span class="line">    $student = explode(<span class="string">'：'</span>, $out[<span class="number">1</span>][<span class="number">2</span>]);</span><br><span class="line">    $studentInfo[<span class="number">2</span>] = substr(trim($student[<span class="number">1</span>]), <span class="number">0</span>,<span class="number">4</span>);</span><br><span class="line"><span class="comment">//    var_dump($studentInfo);</span></span><br><span class="line">    preg_match_all(<span class="string">'/&lt;table id="Table1"[\w\W]*?&gt;([\w\W]*?)&lt;\/table&gt;/'</span>,$en_contents,$out);</span><br><span class="line">    </span><br><span class="line">    $table = $out[<span class="number">0</span>][<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">//检查</span></span><br><span class="line">    <span class="keyword">if</span>($table==<span class="string">''</span>)&#123;</span><br><span class="line">       <span class="keyword">echo</span> <span class="string">"&lt;script&gt;alert('是不是输错了啦QAQ');&lt;/script&gt;"</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    preg_match_all(<span class="string">'/&lt;td [\w\W]*?&gt;([\w\W]*?)&lt;\/td&gt;/'</span>,$table,$out);</span><br><span class="line">    </span><br><span class="line">    $td = $out[<span class="number">1</span>];</span><br><span class="line"> <span class="comment">//    print_r($table);</span></span><br><span class="line">    $length = count($td);</span><br><span class="line">    <span class="comment">//获得课程列表</span></span><br><span class="line">    <span class="keyword">for</span> ($i=<span class="number">0</span>; $i &lt; $length; $i++) &#123;</span><br><span class="line">        $td[$i] = str_replace(<span class="string">"&lt;br&gt;"</span>, <span class="string">""</span>, $td[$i]);</span><br><span class="line">        $reg = <span class="string">"/&#123;(.*)&#125;/"</span>;</span><br><span class="line">        <span class="keyword">if</span> (!preg_match_all($reg, $td[$i], $matches)) &#123;</span><br><span class="line">            <span class="keyword">unset</span>($td[$i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    $data = array_values($td); <span class="comment">//将课程列表数组重新索引</span></span><br><span class="line">    $tdLength = count($td);</span><br><span class="line">    <span class="comment">//将课表转换成数组形式</span></span><br><span class="line">    <span class="keyword">for</span>($i=<span class="number">0</span>;$i&lt;count($data);$i++) &#123;</span><br><span class="line">        $data[$i] = str_replace(<span class="string">'（'</span> , <span class="string">'('</span> , $data[$i]);</span><br><span class="line">        $data[$i] = str_replace(<span class="string">'）'</span> , <span class="string">')'</span> , $data[$i]);</span><br><span class="line">        preg_match_all(<span class="string">'/(?!\d+$)[0-9A-z]&#123;4&#125;/'</span>, $data[$i], $classroom);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (count($classroom[<span class="number">0</span>]) == <span class="number">2</span>) &#123;</span><br><span class="line">            <span class="comment">// var_dump($data[$i]);</span></span><br><span class="line">            $match = preg_split(<span class="string">"/&#123;$classroom[0][0]&#125;/"</span>, $data[$i],<span class="number">2</span>);</span><br><span class="line">            $match1=preg_split(<span class="string">"/\)/"</span>, $match[<span class="number">1</span>],<span class="number">2</span>);</span><br><span class="line">            $data[$i] = str_replace($match1[<span class="number">1</span>] , <span class="string">''</span> , $data[$i]);</span><br><span class="line">            array_push($data,$match1[<span class="number">1</span>]);</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">   <span class="comment">// var_dump($data);</span></span><br><span class="line"><span class="comment">//var_dump($data);</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    $teacher=<span class="string">''</span>;</span><br><span class="line">    <span class="keyword">for</span>($i=<span class="number">0</span>;$i&lt;count($data);$i++)&#123;</span><br><span class="line">        $str =$data[$i];</span><br><span class="line">        preg_match_all(<span class="string">'/(.*?)周(.*?)第/'</span>,$str,$subject);</span><br><span class="line">        preg_match_all(<span class="string">'/周(.*?)第/'</span>,$str,$day);</span><br><span class="line">        preg_match_all(<span class="string">'/第(.*?),(.*?)节/'</span>,$str,$time);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        preg_match_all(<span class="string">'/\&#123;第(.*?)-(.*?)周\&#125;/'</span>,$str,$week);</span><br><span class="line"></span><br><span class="line">        preg_match_all(<span class="string">'/(?!\d+$)[0-9A-z]&#123;4&#125;/'</span>,$str,$classroom);</span><br><span class="line"></span><br><span class="line">        $kcb[$i][<span class="number">0</span>]=$subject[<span class="number">1</span>][<span class="number">0</span>];</span><br><span class="line">        $kcb[$i][<span class="number">1</span>]=$day[<span class="number">1</span>][<span class="number">0</span>];</span><br><span class="line">        $kcb[$i][<span class="number">2</span>]=$time[<span class="number">1</span>][<span class="number">0</span>];</span><br><span class="line">        $kcb[$i][<span class="number">3</span>]=$time[<span class="number">2</span>][<span class="number">0</span>];</span><br><span class="line">        $kcb[$i][<span class="number">4</span>]=$week[<span class="number">1</span>][<span class="number">0</span>];</span><br><span class="line">        $kcb[$i][<span class="number">5</span>]=$week[<span class="number">2</span>][<span class="number">0</span>];</span><br><span class="line">        $kcb[$i][<span class="number">6</span>]=$teacher;</span><br><span class="line">        $kcb[$i][<span class="number">7</span>]=$classroom[<span class="number">0</span>][<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    $json_string = json_encode($kcb);</span><br><span class="line"><span class="comment">// 写入文件</span></span><br><span class="line">file_put_contents(<span class="string">'kcb.json'</span>, $json_string);</span><br><span class="line">   <span class="comment">// echo "&lt;pre&gt;";</span></span><br><span class="line"> <span class="comment">//var_dump($kcb);</span></span><br><span class="line">    curl_close($curl2);</span><br><span class="line">    $url = <span class="string">"showkcb.php"</span>;</span><br><span class="line">    header(<span class="string">"Location: $url"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="读取成绩"><a href="#读取成绩" class="headerlink" title="读取成绩"></a>读取成绩</h2><h3 id="调用函数-1"><a href="#调用函数-1" class="headerlink" title="调用函数"></a>调用函数</h3><figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">$getview=getView();</span><br><span class="line">      <span class="comment">// print_r($getview[0]);</span></span><br><span class="line">      $user=<span class="keyword">trim</span>($_REQUEST[<span class="string">'username'</span>]);</span><br><span class="line">      $password=<span class="keyword">trim</span>($_REQUEST[<span class="string">'password'</span>]);</span><br><span class="line">      $code = <span class="keyword">trim</span>($_REQUEST[<span class="string">'code'</span>]);</span><br><span class="line">      $xuenian=<span class="keyword">trim</span>($_REQUEST[<span class="string">'xuenian'</span>]);</span><br><span class="line">      $xueqi=<span class="keyword">trim</span>($_REQUEST[<span class="string">'xueqi'</span>]);</span><br><span class="line">      <span class="comment">// $loginParams为curl模拟登录时post的参数</span></span><br><span class="line">      $loginParams[<span class="string">'__VIEWSTATE'</span>] = $getview[<span class="number">0</span>];</span><br><span class="line">      $loginParams[<span class="string">'txtUserName'</span>] = $user;</span><br><span class="line">      $loginParams[<span class="string">'TextBox2'</span>] = $password;</span><br><span class="line">      $loginParams[<span class="string">'txtSecretCode'</span>] = $code;</span><br><span class="line">      $loginParams[<span class="string">'RadioButtonList1'</span>] = <span class="string">'学生'</span>;</span><br><span class="line">      $loginParams[<span class="string">'Button1'</span>] = <span class="string">''</span>;</span><br><span class="line">      $loginParams[<span class="string">'lbLanguage'</span>] = <span class="string">''</span>;</span><br><span class="line">      $loginParams[<span class="string">'hidPdrs'</span>] = <span class="string">''</span>;</span><br><span class="line">      $loginParams[<span class="string">'hidsc'</span>] = <span class="string">''</span>;</span><br><span class="line"></span><br><span class="line">      <span class="comment">// $cookieFile 为加载验证码时保存的cookie文件名</span></span><br><span class="line">      $cookieFile = SCRIPT_ROOT.<span class="string">'cookie.tmp'</span>;</span><br><span class="line">      <span class="comment">// $targetUrl curl 提交的目标地址</span></span><br><span class="line">      $targetUrl = <span class="string">'http://jwxt.jit.edu.cn/default2.aspx'</span>;</span><br><span class="line">      <span class="comment">// 参数重置</span></span><br><span class="line">      $content = curlLogin1($targetUrl, $cookieFile, $loginParams);</span><br><span class="line">      echo <span class="string">'学年'</span>.$xuenian.<span class="string">"学期"</span>.$xueqi;</span><br><span class="line">      <span class="keyword">break</span>;</span><br></pre></td></tr></table></figure>
+<h3 id="查询成绩函数"><a href="#查询成绩函数" class="headerlink" title="查询成绩函数"></a>查询成绩函数</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">curlLogin1</span><span class="params">($url, $cookieFile, $loginParams)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">global</span> $xuenian;</span><br><span class="line">    <span class="keyword">global</span> $xueqi;</span><br><span class="line">    <span class="keyword">global</span> $user;</span><br><span class="line">    <span class="keyword">global</span> $password;</span><br><span class="line">   <span class="comment">// $user = $user;//用户名</span></span><br><span class="line">    $ch = curl_init($url);</span><br><span class="line">    curl_setopt($ch,CURLOPT_COOKIEFILE, $cookieFile); <span class="comment">//同时发送Cookie</span></span><br><span class="line">    curl_setopt($ch,CURLOPT_RETURNTRANSFER, <span class="number">1</span>);<span class="comment">//设定返回的数据是否自动显示</span></span><br><span class="line">    curl_setopt($ch, CURLOPT_HEADER, <span class="number">0</span>);<span class="comment">//设定是否显示头信 息</span></span><br><span class="line">    curl_setopt($ch, CURLOPT_NOBODY, <span class="keyword">false</span>);<span class="comment">//设定是否输出页面 内容</span></span><br><span class="line">    curl_setopt($ch,CURLOPT_POST, <span class="number">1</span>);</span><br><span class="line">    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, <span class="number">1</span>);</span><br><span class="line">    curl_setopt($ch,CURLOPT_POSTFIELDS, $loginParams); <span class="comment">//提交查询信息</span></span><br><span class="line">    curl_exec($ch);<span class="comment">//返回结果</span></span><br><span class="line">    curl_close($ch); <span class="comment">//关闭</span></span><br><span class="line">    $curl2=curl_init();</span><br><span class="line">    curl_setopt ($curl2,CURLOPT_REFERER,<span class="string">'http://jwxt.jit.edu.cn/xs_main.aspx?xh='</span>.$user);</span><br><span class="line">    curl_setopt($curl2, CURLOPT_COOKIEFILE, $cookieFile);</span><br><span class="line">    curl_setopt($curl2, CURLOPT_HEADER, <span class="keyword">false</span>);</span><br><span class="line">    curl_setopt($curl2, CURLOPT_RETURNTRANSFER, <span class="keyword">true</span>);</span><br><span class="line">    curl_setopt($curl2, CURLOPT_TIMEOUT, <span class="number">20</span>);</span><br><span class="line">    curl_setopt($curl2, CURLOPT_AUTOREFERER, <span class="keyword">true</span>);</span><br><span class="line">    curl_setopt($curl2, CURLOPT_FOLLOWLOCATION, <span class="keyword">true</span>);</span><br><span class="line">    curl_setopt($curl2, CURLOPT_URL, <span class="string">'http://jwxt.jit.edu.cn/xscjcx_dq.aspx?xh='</span>.$user);<span class="comment">//登陆后要从哪个页面获取信息</span></span><br><span class="line">    $en_contents=mb_convert_encoding( curl_exec($curl2),<span class="string">'utf-8'</span>, <span class="keyword">array</span>(<span class="string">'Unicode'</span>,<span class="string">'ASCII'</span>,<span class="string">'GB2312'</span>,<span class="string">'GBK'</span>,<span class="string">'UTF-8'</span>));</span><br><span class="line">    curl_close($curl2);</span><br><span class="line">    <span class="comment">//print_r($en_contents);</span></span><br><span class="line">    $pattern = <span class="string">'/&lt;input type="hidden" name="__VIEWSTATE" value="(.*?)" \/&gt;/is'</span>;</span><br><span class="line">    preg_match_all($pattern, $en_contents, $matches);</span><br><span class="line">    $res[<span class="number">0</span>] = $matches[<span class="number">1</span>][<span class="number">0</span>];</span><br><span class="line">    <span class="comment">// print_r($res);</span></span><br><span class="line">    $logParams[<span class="string">'__EVENTTARGET'</span>] = <span class="string">""</span>;</span><br><span class="line">    $logParams[<span class="string">'__EVENTARGUMENT'</span>] = <span class="string">""</span>;</span><br><span class="line">    $logParams[<span class="string">'__VIEWSTATE'</span>] = $res[<span class="number">0</span>];</span><br><span class="line">    $logParams[<span class="string">'ddlxn'</span>] =$xuenian;</span><br><span class="line">    $logParams[<span class="string">'ddlxq'</span>] =$xueqi;</span><br><span class="line">    $logParams[<span class="string">'btnCx'</span>] = <span class="string">" 查  询 "</span>;</span><br><span class="line">    $curl3=curl_init();</span><br><span class="line">    curl_setopt ($curl3,CURLOPT_REFERER,<span class="string">'http://jwxt.jit.edu.cn/xscjcx_dq.aspx?xh='</span>.$user);</span><br><span class="line">    curl_setopt($curl3, CURLOPT_COOKIEFILE, $cookieFile);</span><br><span class="line">    curl_setopt($curl3, CURLOPT_HEADER, <span class="keyword">false</span>);</span><br><span class="line">    curl_setopt($curl3, CURLOPT_RETURNTRANSFER, <span class="keyword">true</span>);</span><br><span class="line">    curl_setopt($curl3, CURLOPT_TIMEOUT, <span class="number">20</span>);</span><br><span class="line">    curl_setopt($curl3, CURLOPT_AUTOREFERER, <span class="keyword">true</span>);</span><br><span class="line">    curl_setopt($curl3, CURLOPT_FOLLOWLOCATION, <span class="keyword">true</span>);</span><br><span class="line">    curl_setopt($curl3,CURLOPT_POSTFIELDS, $logParams); <span class="comment">//提交查询信息</span></span><br><span class="line">    curl_setopt($curl3, CURLOPT_URL, <span class="string">'http://jwxt.jit.edu.cn/xscjcx_dq.aspx?xh='</span>.$user);<span class="comment">//登陆后要从哪个页面获取信息</span></span><br><span class="line">    $en_contents=mb_convert_encoding( curl_exec($curl3),<span class="string">'utf-8'</span>, <span class="keyword">array</span>(<span class="string">'Unicode'</span>,<span class="string">'ASCII'</span>,<span class="string">'GB2312'</span>,<span class="string">'GBK'</span>,<span class="string">'UTF-8'</span>));</span><br><span class="line">    </span><br><span class="line">    curl_close($curl3);</span><br><span class="line">    preg_match_all(<span class="string">'/&lt;table class="datelist"[\w\W]*?&gt;([\w\W]*?)&lt;\/table&gt;/'</span>,$en_contents,$xscj);</span><br><span class="line">    $xscj1=$xscj[<span class="number">0</span>][<span class="number">0</span>];</span><br><span class="line"><span class="comment">//检查</span></span><br><span class="line">    <span class="keyword">if</span>($xscj1==<span class="string">''</span>)&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"&lt;script&gt;alert('是不是输错了啦QAQ');&lt;/script&gt;"</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    preg_match_all(<span class="string">'/&lt;tr[\w\W]*?&gt;([\w\W]*?)&lt;\/tr&gt;/'</span>,$xscj1,$xscj2);</span><br><span class="line"></span><br><span class="line">    $json_string = json_encode($xscj2[<span class="number">0</span>]);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 写入文件</span></span><br><span class="line">file_put_contents(<span class="string">'cj.json'</span>, $json_string);</span><br><span class="line">    <span class="comment">//print_r($xscj1);</span></span><br><span class="line">    $url = <span class="string">"showcj.php"</span>;</span><br><span class="line">    header( <span class="string">"Location: $url"</span> );</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="HTML表单部分"><a href="#HTML表单部分" class="headerlink" title="HTML表单部分"></a>HTML表单部分</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">role</span>=<span class="string">"form"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"hidden"</span> <span class="attr">name</span>=<span class="string">"act"</span> <span class="attr">value</span>=<span class="string">""</span> <span class="attr">id</span>=<span class="string">"hidden"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span>&gt;</span>输入学号：<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">class</span> =<span class="string">"form-control"</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"username"</span> /&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span>&gt;</span>输入密码：<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">class</span> =<span class="string">"form-control"</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">name</span>=<span class="string">"password"</span> /&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">iframe</span> <span class="attr">class</span>=<span class="string">"pull-right"</span> <span class="attr">src</span>=<span class="string">"?act=authcode"</span> <span class="attr">style</span>=<span class="string">'width: 100px; height:30px; overflow: hidden; display:block;'</span> <span class="attr">frameborder</span>=<span class="string">0</span> &gt;</span><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span>&gt;</span>输入验证码：<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">class</span> =<span class="string">"form-control"</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"code"</span> /&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"> </span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"margin:0 auto;width:100px"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">class</span> =<span class="string">"form-control btn btn-primary"</span> <span class="attr">id</span>=<span class="string">"sub1"</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">name</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"查询课表"</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">        </span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">class</span> =<span class="string">"form-control btn btn-primary"</span> <span class="attr">type</span>=<span class="string">button</span> <span class="attr">onclick</span>=<span class="string">"javascript:window.location.href='show1.php';"</span> <span class="attr">value</span>=<span class="string">"首页/刷新"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"css/domain.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> hidden=<span class="built_in">document</span>.getElementById(<span class="string">"hidden"</span>);</span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> sub1=<span class="built_in">document</span>.getElementById(<span class="string">"sub1"</span>);</span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> sub2=<span class="built_in">document</span>.getElementById(<span class="string">"sub2"</span>);</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">   </span></span><br><span class="line"><span class="actionscript">    sub1.onclick=<span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;  hidden.value=<span class="string">"login"</span>;&#125;;</span></span><br><span class="line"><span class="actionscript">    sub2.onclick=<span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;  hidden.value=<span class="string">"cxcj"</span>;&#125;;</span></span><br><span class="line"><span class="actionscript">   <span class="comment">// hidden.value="cxcj";</span></span></span><br><span class="line"><span class="actionscript">   <span class="comment">// alert(hidden.value);</span></span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h2><p> <img src="http://www.summerscar.com/myCollege/03.png" alt="课程表"><br> <img src="http://www.summerscar.com/myCollege/04.png" alt="课程表"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/php/" rel="tag"># php</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/04/15/requestAnimationFrame基本用法/" rel="next" title="requestAnimationFrame基本用法">
+                <i class="fa fa-chevron-left"></i> requestAnimationFrame基本用法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/05/05/Vue-js钩子函数Mounted/" rel="prev" title="Vue.js钩子函数">
+                Vue.js钩子函数 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="summerscar">
+            
+              <p class="site-author-name" itemprop="name">summerscar</p>
+              <p class="site-description motion-element" itemprop="description">不会日语的up主不是一个好程序猿</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">51</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/summerscar" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://weibo.com/5508256828" target="_blank" title="Weibo">
+                      
+                        <i class="fa fa-fw fa-globe"></i>Weibo</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:shen.yus@163.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://space.bilibili.com/5248611/" target="_blank" title="BILIBILI">
+                      
+                        <i class="fa fa-fw fa-globe"></i>BILIBILI</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#5-30更新"><span class="nav-number">1.</span> <span class="nav-text">5.30更新</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">2.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#调用函数部分"><span class="nav-number">3.</span> <span class="nav-text">调用函数部分</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#变量初始化"><span class="nav-number">3.1.</span> <span class="nav-text">变量初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#curl封装函数"><span class="nav-number">3.2.</span> <span class="nav-text">curl封装函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取-viewstate函数"><span class="nav-number">3.3.</span> <span class="nav-text">获取_viewstate函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取验证码"><span class="nav-number">4.</span> <span class="nav-text">获取验证码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#获取验证码图片"><span class="nav-number">4.1.</span> <span class="nav-text">获取验证码图片</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#读取课程表"><span class="nav-number">5.</span> <span class="nav-text">读取课程表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#调用函数"><span class="nav-number">5.1.</span> <span class="nav-text">调用函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取课程表函数"><span class="nav-number">5.2.</span> <span class="nav-text">获取课程表函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#读取成绩"><span class="nav-number">6.</span> <span class="nav-text">读取成绩</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#调用函数-1"><span class="nav-number">6.1.</span> <span class="nav-text">调用函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查询成绩函数"><span class="nav-number">6.2.</span> <span class="nav-text">查询成绩函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML表单部分"><span class="nav-number">7.</span> <span class="nav-text">HTML表单部分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#效果"><span class="nav-number">8.</span> <span class="nav-text">效果</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">summerscar</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a></div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=62548480";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://summerscar.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://summerscar.me/2017/04/18/curl获取教务系统数据/';
+          this.page.identifier = '2017/04/18/curl获取教务系统数据/';
+          this.page.title = 'Curl获取教务系统数据';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://summerscar.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/love.js"></script>
+  
+<div id="hexo-helper-live2d">
+  <canvas id="live2dcanvas" width="150" height="300"></canvas>
+</div>
+<style>
+  #live2dcanvas{
+    position: fixed;
+    width: 150px;
+    height: 300px;
+    opacity:0.9;
+    right: 50px;
+    z-index: 999;
+    pointer-events: none;
+    bottom: -30px;
+  }
+</style>
+<script type="text/javascript" src="/live2d/device.min.js"></script>
+<script type="text/javascript">
+const loadScript = function loadScript(c,b){var a=document.createElement("script");a.type="text/javascript";"undefined"!=typeof b&&(a.readyState?a.onreadystatechange=function(){if("loaded"==a.readyState||"complete"==a.readyState)a.onreadystatechange=null,b()}:a.onload=function(){b()});a.src=c;document.body.appendChild(a)};
+(function(){
+  if((typeof(device) != 'undefined') && (device.mobile())){
+    document.getElementById("live2dcanvas").style.width = '75px';
+    document.getElementById("live2dcanvas").style.height = '150px';
+  }else
+    if (typeof(device) === 'undefined') console.error('Cannot find current-device script.');
+  loadScript("/live2d/script.js", function(){loadlive2d("live2dcanvas", "/live2d/assets/makoto0.model.json", 0.5);});
+})();
+</script>
+
+</body>
+</html>

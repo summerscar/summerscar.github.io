@@ -1,0 +1,1500 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="JavaScript,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="最近又把红宝书翻了一遍，顺便整理下基础的东西前端大坑，现在还是再看看最基础的吧">
+<meta name="keywords" content="JavaScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript基础知识">
+<meta property="og:url" content="http://summerscar.me/2017/07/23/JavaScript基础知识/index.html">
+<meta property="og:site_name" content="summerscar">
+<meta property="og:description" content="最近又把红宝书翻了一遍，顺便整理下基础的东西前端大坑，现在还是再看看最基础的吧">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-01-01T10:57:16.257Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript基础知识">
+<meta name="twitter:description" content="最近又把红宝书翻了一遍，顺便整理下基础的东西前端大坑，现在还是再看看最基础的吧">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://summerscar.me/2017/07/23/JavaScript基础知识/">
+
+
+
+
+
+  <title>JavaScript基础知识 | summerscar</title>
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-100106686-2', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?f4920480d16ba0509e59aedc000fc3f4";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">summerscar</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">blog</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://summerscar.me/2017/07/23/JavaScript基础知识/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="summerscar">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="summerscar">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">JavaScript基础知识</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-23T18:27:45+08:00">
+                2017-07-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Code/" itemprop="url" rel="index">
+                    <span itemprop="name">Code</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/07/23/JavaScript基础知识/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/07/23/JavaScript基础知识/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <script src="/assets/js/APlayer.min.js"> </script><p>最近又把红宝书翻了一遍，顺便整理下基础的东西<br>前端大坑，现在还是再看看最基础的吧<br><a id="more"></a></p>
+<h1 id="JavaScript基础整理"><a href="#JavaScript基础整理" class="headerlink" title="JavaScript基础整理"></a>JavaScript基础整理</h1><h2 id="类型"><a href="#类型" class="headerlink" title="类型"></a>类型</h2><h3 id="基本类型"><a href="#基本类型" class="headerlink" title="基本类型"></a>基本类型</h3><pre><code>* number
+* string
+* boolean
+* null
+* undefined
+</code></pre><h3 id="引用类型"><a href="#引用类型" class="headerlink" title="引用类型"></a>引用类型</h3><pre><code>* object
+* array
+* function(函数对象)
+</code></pre><h3 id="基本包装类型-amp-特殊引用类型"><a href="#基本包装类型-amp-特殊引用类型" class="headerlink" title="基本包装类型&amp;特殊引用类型"></a>基本包装类型&amp;特殊引用类型</h3><p>（p119 不建议显式创建基本包装类型）</p>
+<pre><code>* Boolean
+* Number
+* String
+</code></pre><p>str.tostring()</p>
+<p>str.substring()</p>
+<h4 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h4><pre><code>* 创建实例
+* 在该实例上调用制定方法
+* 销毁这个实例 
+</code></pre><h4 id="查找字符串中所有字符"><a href="#查找字符串中所有字符" class="headerlink" title="查找字符串中所有字符"></a>查找字符串中所有字符</h4><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">var</span> str = <span class="string">'hello world'</span></span><br><span class="line"><span class="selector-tag">var</span> posArr = new Array()</span><br><span class="line"><span class="selector-tag">var</span> pos = str.indexOf(<span class="string">"o"</span>)</span><br><span class="line"><span class="function"><span class="title">while</span><span class="params">(pos &gt; -<span class="number">1</span>)</span></span> &#123;</span><br><span class="line">    posArr.push(pos)</span><br><span class="line">    pos = str.indexOf(<span class="string">"0"</span>,pos+<span class="number">1</span>)</span><br><span class="line">&#125;</span><br><span class="line">console.log(posArr)   <span class="comment">//[4,7]</span></span><br></pre></td></tr></table></figure>
+<h3 id="基本类型检查测-typeof"><a href="#基本类型检查测-typeof" class="headerlink" title="基本类型检查测 typeof"></a>基本类型检查测 typeof</h3><p>用于检测基本类型</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typeof</span> <span class="literal">undefined</span>    <span class="comment">//undefined</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="string">'123'</span>        <span class="comment">//string</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="number">123</span>          <span class="comment">//number</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="literal">true</span>         <span class="comment">//boolean</span></span><br><span class="line"><span class="keyword">typeof</span> &#123;&#125;           <span class="comment">//object</span></span><br><span class="line"><span class="keyword">typeof</span> []           <span class="comment">//object</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="literal">null</span>         <span class="comment">//object</span></span><br><span class="line"><span class="keyword">typeof</span> <span class="built_in">console</span>.log  <span class="comment">//function</span></span><br></pre></td></tr></table></figure>
+<h3 id="引用类型检测"><a href="#引用类型检测" class="headerlink" title="引用类型检测"></a>引用类型检测</h3><ul>
+<li>Object.prototype.toString.call(arr)   //[object Array]</li>
+<li>arr instanceof Array                  //true</li>
+</ul>
+<h3 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h3><ul>
+<li><p>字符串拼接时<br>  let msg = 100 + 10      //110<br>  let msg = 100 + ‘10’    //10010</p>
+</li>
+<li><p>if语句判断时</p>
+</li>
+</ul>
+<h3 id=""><a href="#" class="headerlink" title="==/==="></a>==/===</h3><p>null == undefined<br>null !== undefined</p>
+<h3 id="内置函数"><a href="#内置函数" class="headerlink" title="内置函数"></a>内置函数</h3><ol>
+<li>object</li>
+<li>array</li>
+<li>boolean</li>
+<li>number</li>
+<li>string</li>
+<li>function</li>
+<li>data</li>
+<li>regexp</li>
+<li>error</li>
+</ol>
+<h3 id="数组迭代方法"><a href="#数组迭代方法" class="headerlink" title="数组迭代方法"></a>数组迭代方法</h3><ol>
+<li>forEach</li>
+<li>every</li>
+<li>some</li>
+<li>sort   //a-b (从小到大)  b-a（从大到小）</li>
+<li>map</li>
+<li>filter</li>
+</ol>
+<h3 id="类数组对象转化为数组"><a href="#类数组对象转化为数组" class="headerlink" title="类数组对象转化为数组"></a>类数组对象转化为数组</h3><p>Array.prototype.slice.call(arguments,0)</p>
+<h3 id="对象API"><a href="#对象API" class="headerlink" title="对象API"></a>对象API</h3><figure class="highlight gauss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> <span class="built_in">key</span> in obj)&#123;</span><br><span class="line">    <span class="keyword">if</span> (obj.hasOwnProperty(<span class="built_in">key</span>)) &#123;  <span class="comment">//判断是否非原型中属性</span></span><br><span class="line">        console.<span class="built_in">log</span>(<span class="built_in">key</span>, obj[<span class="built_in">key</span>])</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="object主要属性和方法"><a href="#object主要属性和方法" class="headerlink" title="object主要属性和方法"></a>object主要属性和方法</h3><ul>
+<li>constructor //保存着创建当前对象的函数（即构造函数）</li>
+<li>hasOwnProperty(prototype)   //判断属性是否在当前实例中</li>
+<li>isPrototypeOf(object)         //检查传入的对象是否当前对象的原型</li>
+</ul>
+<h3 id="垃圾收集"><a href="#垃圾收集" class="headerlink" title="垃圾收集"></a>垃圾收集</h3><ul>
+<li>标记清除</li>
+<li>引用计数</li>
+</ul>
+<h2 id="对象，原型-原型链-继承"><a href="#对象，原型-原型链-继承" class="headerlink" title="对象，原型,原型链,继承"></a>对象，原型,原型链,继承</h2><h3 id="执行new的过程"><a href="#执行new的过程" class="headerlink" title="执行new的过程"></a>执行new的过程</h3><p>使用new关键字调用函数（new ClassA(…)）的具体步骤：</p>
+<ol>
+<li>创建空对象；<br>　　var obj = {};</li>
+<li>设置新对象的constructor属性为构造函数的名称，设置新对象的<strong>proto</strong>属性指向构造函数的prototype对象；<br>　　obj.<strong>proto</strong> = ClassA.prototype;</li>
+<li>使用新对象调用函数，函数中的this被指向新实例对象：<br>　　ClassA.call(obj);　　//{}.构造函数();          </li>
+<li>将初始化完毕的新对象地址，保存到等号左边的变量中</li>
+</ol>
+<h3 id="创建对象的构造函数模式与原型模式"><a href="#创建对象的构造函数模式与原型模式" class="headerlink" title="创建对象的构造函数模式与原型模式"></a>创建对象的构造函数模式与原型模式</h3><ul>
+<li>构造函数模式缺陷：每个方法都在实例上重新创建了</li>
+<li>原型模式缺陷：属性与方法被共享，导致引用类型无法保证独立<h3 id="原型与构造函数组合创建对象"><a href="#原型与构造函数组合创建对象" class="headerlink" title="原型与构造函数组合创建对象"></a>原型与构造函数组合创建对象</h3><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Ele</span> (<span class="params">id</span>) </span>&#123;</span><br><span class="line">    thi.ele = <span class="built_in">document</span>.getElementById(id)</span><br><span class="line">&#125;</span><br><span class="line">Ele.prototype.html = <span class="function"><span class="keyword">function</span> (<span class="params">val</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> ele = <span class="keyword">this</span>.ele</span><br><span class="line">    <span class="keyword">if</span> (val) &#123;</span><br><span class="line">        ele.innerHTML = val</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>         <span class="comment">//用于链式操作</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> ele.innerHTML</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">Ele.prototype.on = <span class="function"><span class="keyword">function</span> (<span class="params"><span class="keyword">type</span>, fn</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> ele = <span class="keyword">this</span>.ele</span><br><span class="line">    ele.addEventListener(<span class="keyword">type</span>, fn)</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> div = <span class="keyword">new</span> Ele(<span class="string">'div'</span>)</span><br><span class="line">div.html(<span class="string">'XXX'</span>).on(<span class="string">'click'</span>,<span class="function"><span class="params">()</span> =&gt;</span> &#123;<span class="built_in">console</span>.log(<span class="string">''</span>)&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="常用操作"><a href="#常用操作" class="headerlink" title="常用操作"></a>常用操作</h3><h4 id="instanceof"><a href="#instanceof" class="headerlink" title="instanceof"></a>instanceof</h4><p>instanceof 用于判断对象和函数  (即引用类型)<br>instanceof是检测对象的原型链是否指向构造函数的prototype对象</p>
+<h4 id="proto"><a href="#proto" class="headerlink" title="proto"></a><strong>proto</strong></h4><p>指向其构造函数的prototype  (指向上一层的原型)</p>
+<h4 id="hasOwnProtperty"><a href="#hasOwnProtperty" class="headerlink" title="hasOwnProtperty"></a>hasOwnProtperty</h4><p>obj.hasOwnProtperty(property) 检测是否为自身属性（不包含来自原型的属性）</p>
+<h4 id="in操作符"><a href="#in操作符" class="headerlink" title="in操作符"></a>in操作符</h4><p>property in obj  //判断property是否能在对象中访问到</p>
+<h4 id="constructorof"><a href="#constructorof" class="headerlink" title="constructorof"></a>constructorof</h4><p>实例被创建时同时创建prototype对象，对象会自动获得constructor属性（P155）<br>subObj.constructorof == super<br>subObj.constructorof == Object </p>
+<h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><h4 id="确定原型与实例关系"><a href="#确定原型与实例关系" class="headerlink" title="确定原型与实例关系"></a>确定原型与实例关系</h4><ul>
+<li>实例 instanceof 构造函数</li>
+<li>构造函数.prototype.isPrototypeOf(实例)  <blockquote>
+<p>(P165)判断构造函数的原型是否在实例的原型链中</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="原型链继承的例子"><a href="#原型链继承的例子" class="headerlink" title="原型链继承的例子"></a>原型链继承的例子</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Animal</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.eat = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log (<span class="string">'animal eat'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Dog</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.sleep = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'dog sleep'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">Dog.prototype = <span class="keyword">new</span> Animal ()   <span class="comment">//原型链继承</span></span><br><span class="line"><span class="keyword">let</span> keji = <span class="keyword">new</span> Dog()</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>存在的问题   </p>
+<pre><code>1. 引用类型被共享 
+2. 无法传递参数（若传递参数，则其他实例也会受影响）
+</code></pre></blockquote>
+<h4 id="借用构造函数"><a href="#借用构造函数" class="headerlink" title="借用构造函数"></a>借用构造函数</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SuperType</span> (<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name</span><br><span class="line">    <span class="keyword">this</span>.color = [<span class="string">'red'</span>,<span class="string">'blue'</span>,<span class="string">'black'</span>]</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SubType</span> (<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="comment">//继承Super</span></span><br><span class="line">    SuperType.call(<span class="keyword">this</span>, name)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> instance = <span class="keyword">new</span> SubType(<span class="string">'Nic'</span>)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>存在问题  </p>
+<pre><code>1. 方法在构造函数中，无法复用
+2. 超类中原型中定义的方法，子类无法使用
+</code></pre></blockquote>
+<h4 id="组合继承"><a href="#组合继承" class="headerlink" title="组合继承"></a>组合继承</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SuperType</span> (<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name</span><br><span class="line">    <span class="keyword">this</span>.color = [<span class="string">'red'</span>,<span class="string">'blue'</span>,<span class="string">'black'</span>]</span><br><span class="line">&#125;</span><br><span class="line">SuperType.prototype.sayname = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(<span class="keyword">this</span>,name)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SubType</span> (<span class="params">name, age</span>) </span>&#123;</span><br><span class="line">    <span class="comment">//继承Super属性</span></span><br><span class="line">    SuperType.call(<span class="keyword">this</span>, name)</span><br><span class="line">&#125;</span><br><span class="line">SubType.prototype = <span class="keyword">new</span> SuperType()</span><br><span class="line">SubType.prototype.constructor = Subtyppe</span><br><span class="line">SubType.prototype.sayage = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(<span class="keyword">this</span>.age)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> instance = <span class="keyword">new</span> SubType(<span class="string">'Nic'</span>,<span class="string">'20'</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><h3 id="callee-amp-caller"><a href="#callee-amp-caller" class="headerlink" title="callee&amp;caller"></a>callee&amp;caller</h3><p>arguments.callee        //指向arguments的对象函数本身,可用于递归<br>arguments.callee.calller&amp;fun.caller //指向该函数引用（alert(fun.caller)）</p>
+<h3 id="this"><a href="#this" class="headerlink" title="this"></a>this</h3><p>根据函数执行来确定<br>call(obj,param1,param2)<br>apply(obj,arguments)<br>箭头函数</p>
+<blockquote>
+<p><a href="http://summerscar.me/2017/05/10/bind-this/">this的指向问题</a></p>
+</blockquote>
+<h3 id="apply-amp-call"><a href="#apply-amp-call" class="headerlink" title="apply&amp;call"></a>apply&amp;call</h3><ul>
+<li>appply(this.arguments)</li>
+<li>call(this,param1,param2)</li>
+</ul>
+<h3 id="闭包的应用"><a href="#闭包的应用" class="headerlink" title="闭包的应用"></a>闭包的应用</h3><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isFirstLoad</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> _list = []    <span class="comment">//私有变量</span></span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="params">(id)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (_list.indexOf(id) &gt;= <span class="number">0</span>)&#123;    </span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            _list.push(id)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> firstLoad = <span class="keyword">is</span> FirstLoad()</span><br><span class="line">firstLoad(<span class="number">10</span>)  <span class="comment">//true </span></span><br><span class="line">firstLoad(<span class="number">10</span>)  <span class="comment">//false</span></span><br><span class="line">firstLoad(<span class="number">20</span>)  <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+<p>10个li点击的应用<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//错误方法</span></span><br><span class="line">    <span class="keyword">var</span> i,a</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>;i &lt; <span class="number">10</span>;i++) &#123;</span><br><span class="line">        a=<span class="built_in">document</span>.createElement(<span class="string">'a'</span>)</span><br><span class="line">        a.innerHTML = i + <span class="string">'&lt;br&gt;'</span></span><br><span class="line">        a.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">            e.preventDefault()</span><br><span class="line">            alert(i)</span><br><span class="line">        &#125;)</span><br><span class="line">        <span class="built_in">document</span>.body.appendChild(a)</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//正确方法（不传入变量i也可以）</span></span><br><span class="line">    <span class="keyword">var</span> i</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>;i &lt; <span class="number">10</span>;i++) &#123;</span><br><span class="line">        (<span class="function"><span class="keyword">function</span> (<span class="params">i</span>)</span>&#123;</span><br><span class="line">            <span class="keyword">var</span> a</span><br><span class="line">            a=<span class="built_in">document</span>.createElement(<span class="string">'a'</span>)</span><br><span class="line">            a.innerHTML = i + <span class="string">'&lt;br&gt;'</span></span><br><span class="line">            a.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">            e.preventDefault()</span><br><span class="line">            alert(i)</span><br><span class="line">        &#125;)</span><br><span class="line">        <span class="built_in">document</span>.body.appendChild(a)</span><br><span class="line">        &#125;)(i)</span><br><span class="line">      </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="闭包中this指向（P182）"><a href="#闭包中this指向（P182）" class="headerlink" title="闭包中this指向（P182）"></a>闭包中this指向（P182）</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    name: <span class="string">'summerscar'</span>,</span><br><span class="line">    sayName: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="keyword">return</span>(<span class="keyword">this</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(obj.sayName()())  <span class="comment">//window</span></span><br></pre></td></tr></table></figure>
+<h3 id="块级作用域（私有作用域）"><a href="#块级作用域（私有作用域）" class="headerlink" title="块级作用域（私有作用域）"></a>块级作用域（私有作用域）</h3><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">            <span class="comment">//此处为块级作用域</span></span><br><span class="line">&#125;)()</span><br><span class="line"><span class="comment">//相当于建立一个自执行的函数作为一段代码中语句</span></span><br></pre></td></tr></table></figure>
+<p>相当于这种写法<br><figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="function"><span class="keyword">fn</span> = <span class="title">function</span></span>() &#123;</span><br><span class="line">    <span class="comment">//块级作用域</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">fn</span></span>();</span><br></pre></td></tr></table></figure></p>
+<p>然而这样写会出错<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;()  <span class="comment">//出错</span></span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>P185 function作为关键字，会被认定为函数声明，因而不能使用（），而函数表达式可以使用（），为函数加上（fun(){}）即可</p>
+</blockquote>
+<h3 id="私有属性（P186）"><a href="#私有属性（P186）" class="headerlink" title="私有属性（P186）"></a>私有属性（P186）</h3><h4 id="私有变量"><a href="#私有变量" class="headerlink" title="私有变量"></a>私有变量</h4><p>特点：利用构造函数 每个实例拥有自己的属性和方法<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">MyObject</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">//私有变量及方法</span></span><br><span class="line">    <span class="keyword">var</span> privateVar = <span class="number">10</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">privateFun</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//特权方法</span></span><br><span class="line">    <span class="keyword">this</span>.publicMethod = <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        privateVar++</span><br><span class="line">        <span class="keyword">return</span> privateFun()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="静态私有变量"><a href="#静态私有变量" class="headerlink" title="静态私有变量"></a>静态私有变量</h4><p>特点：利用块级作用域，定义属性，使用函数表达式创建构造函数，方法定义在原型中，每个实例间可以共享方法和属性<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">var</span> privateVar = <span class="number">10</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">privateFun</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//构造函数</span></span><br><span class="line">    MyObject = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123; &#125;</span><br><span class="line">    <span class="comment">//特权方法</span></span><br><span class="line">    MyObject。prototype.publicMethod = funtion () &#123;</span><br><span class="line">        privateVar ++</span><br><span class="line">        <span class="keyword">return</span> privateFun ()</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure></p>
+<p>以下两种还不太懂</p>
+<h4 id="模块模式"><a href="#模块模式" class="headerlink" title="模块模式"></a>模块模式</h4><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> sigleton = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> privateVar = <span class="number">10</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">privateFun</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//返回对象</span></span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        publicProperty: <span class="literal">true</span>,</span><br><span class="line">        publicMethod: funtion () &#123;</span><br><span class="line">            privateVar ++</span><br><span class="line">            <span class="keyword">return</span> privateFun ()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="增强的模块模式"><a href="#增强的模块模式" class="headerlink" title="增强的模块模式"></a>增强的模块模式</h4><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">var</span> sigleton = function () &#123;</span><br><span class="line">    <span class="selector-tag">var</span> privateVar = <span class="number">10</span></span><br><span class="line">    function privateFun () &#123;</span><br><span class="line">        return false</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//创建对象</span></span><br><span class="line">    <span class="selector-tag">var</span> object</span><br><span class="line">    <span class="selector-tag">object</span><span class="selector-class">.publicProperty</span>: true,</span><br><span class="line">    <span class="selector-tag">object</span><span class="selector-class">.publicMethod</span>: funtion () &#123;</span><br><span class="line">            privateVar ++</span><br><span class="line">            return privateFun ()</span><br><span class="line">        &#125;</span><br><span class="line">    return object</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="DOM"><a href="#DOM" class="headerlink" title="DOM"></a>DOM</h2><blockquote>
+<p>dom数据结构为树形结构</p>
+</blockquote>
+<h3 id="DOM类型"><a href="#DOM类型" class="headerlink" title="DOM类型"></a>DOM类型</h3><ul>
+<li>document类型 nodeTyoe: 9 </li>
+<li>Element类型 nodeType: 1<ul>
+<li>元素标签判断:   elem.tagName.toLowerCase() == ‘div’</li>
+<li>get/set/removeAttribute()自定义属性值</li>
+</ul>
+</li>
+<li>Attribute类型 nodeType: 2</li>
+<li>Text类型 nodeType: 3<ul>
+<li>normalize() 合并两个或两个以上的文本节点</li>
+<li>splitText(pos)根据pos位置分割文本节点</li>
+</ul>
+</li>
+</ul>
+<h3 id="表格操作的特使方法"><a href="#表格操作的特使方法" class="headerlink" title="表格操作的特使方法"></a>表格操作的特使方法</h3><pre><code>&gt;P282
+</code></pre><h3 id="DOM对象节点获取"><a href="#DOM对象节点获取" class="headerlink" title="DOM对象节点获取"></a>DOM对象节点获取</h3><ul>
+<li>getElementById…</li>
+<li>querySelector</li>
+<li>querySelectorAll  </li>
+<li>matchesSelector()<ul>
+<li>el.matchesSelector(“el的CSS选择”) 判断调用元素是否与选择符匹配</li>
+</ul>
+</li>
+</ul>
+<h3 id="自定义属性data"><a href="#自定义属性data" class="headerlink" title="自定义属性data"></a>自定义属性data</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let <span class="selector-tag">div</span> = get.elementById(<span class="string">"myDiv"</span>)</span><br><span class="line"><span class="comment">//获取data-appid的值</span></span><br><span class="line"><span class="selector-tag">var</span> apppid = <span class="selector-tag">div</span><span class="selector-class">.dataset</span><span class="selector-class">.appid</span></span><br><span class="line"><span class="comment">//设置data-appid的值</span></span><br><span class="line"><span class="selector-tag">div</span><span class="selector-class">.data</span><span class="selector-class">.appid</span> = <span class="string">"233"</span></span><br></pre></td></tr></table></figure>
+<h3 id="scrollIntoView-P298"><a href="#scrollIntoView-P298" class="headerlink" title="scrollIntoView() (P298)"></a>scrollIntoView() (P298)</h3><pre><code>//让元素可见（即出现在视口中）
+div.scrollIntoView()
+</code></pre><h3 id="Attribute-amp-property"><a href="#Attribute-amp-property" class="headerlink" title="Attribute&amp;property"></a>Attribute&amp;property</h3><p>Attribute //标签中属性<br>property  //对象属性</p>
+<h3 id="DOM2与DOM3的变化"><a href="#DOM2与DOM3的变化" class="headerlink" title="DOM2与DOM3的变化"></a>DOM2与DOM3的变化</h3><h4 id="访问样式"><a href="#访问样式" class="headerlink" title="访问样式"></a>访问样式</h4><ul>
+<li>有连词符的需转换为驼峰式写法</li>
+<li>float为JS的保留字，需写为cssFloat</li>
+</ul>
+<h4 id="cssText"><a href="#cssText" class="headerlink" title="cssText"></a>cssText</h4><ul>
+<li>读取模式：访问style特性中的CSS代码</li>
+<li>写入模式：重写整个style特性的值，以前指定的样式将丢失</li>
+</ul>
+<h2 id="BOM"><a href="#BOM" class="headerlink" title="BOM"></a>BOM</h2><h3 id="window"><a href="#window" class="headerlink" title="window"></a>window</h3><h3 id="navigator"><a href="#navigator" class="headerlink" title="navigator"></a>navigator</h3><p>navigator.userAgent.indexOf(‘Chrome’)</p>
+<h3 id="screen"><a href="#screen" class="headerlink" title="screen"></a>screen</h3><h3 id="location"><a href="#location" class="headerlink" title="location"></a>location</h3><ul>
+<li>assign        //下者调用该方法    </li>
+<li>href          //完整链接&amp;改变网站地址</li>
+<li>replace       //跳转但不产生记录</li>
+<li>protocol      //http:</li>
+<li>host          // xxx/</li>
+<li>pathname      //  /xxx</li>
+<li>search        // ?查询字符</li>
+<li>hash          // #链接</li>
+<li>reload        //刷新 若reload(true),则刷新缓存</li>
+</ul>
+<h3 id="history"><a href="#history" class="headerlink" title="history"></a>history</h3><ul>
+<li>back</li>
+<li>forword</li>
+<li>go(num)</li>
+</ul>
+<h2 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h2><h3 id="冒泡-amp-捕获"><a href="#冒泡-amp-捕获" class="headerlink" title="冒泡&amp;捕获"></a>冒泡&amp;捕获</h3><p>DOM2级事件规定的事件流 1.事件捕获阶段2.处于目标阶段3.时间冒泡阶段</p>
+<h3 id="事件对象"><a href="#事件对象" class="headerlink" title="事件对象"></a>事件对象</h3><p>e.preventDefault       //阻止默认事件<br>e.stopPropatation      //阻止事件冒泡</p>
+<blockquote>
+<p>blur与focus的焦点事件不会冒泡</p>
+</blockquote>
+<h3 id="HTML5事件-P388"><a href="#HTML5事件-P388" class="headerlink" title="HTML5事件(P388)"></a>HTML5事件(P388)</h3><ul>
+<li>contentmenu           //右击上下文菜单</li>
+<li>beforeunload          //浏览器卸载页面之前</li>
+<li>DOMContentLoaded      //DOM树形成后触发</li>
+<li>hashchange            //url后#后面字符发生变化时</li>
+</ul>
+<h2 id="Canvas"><a href="#Canvas" class="headerlink" title="Canvas"></a>Canvas</h2><h3 id="合成"><a href="#合成" class="headerlink" title="合成"></a>合成</h3><ul>
+<li>globalAlpha</li>
+<li>globalCompositionOperation</li>
+</ul>
+<h2 id="HTML5脚本编程"><a href="#HTML5脚本编程" class="headerlink" title="HTML5脚本编程"></a>HTML5脚本编程</h2><ul>
+<li>video与audio的属性与方法 （P487） </li>
+</ul>
+<h2 id="Ajax"><a href="#Ajax" class="headerlink" title="Ajax"></a>Ajax</h2><figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">var xhr = new XMLHttpRequest()</span><br><span class="line">xhr.open(<span class="string">"<span class="keyword">GET</span>"</span>, <span class="string">"URL"</span>, false)</span><br><span class="line">xhr.onreadystatechange = function () &#123;</span><br><span class="line">    if (xhr.readyState == <span class="number">4</span>) &#123;</span><br><span class="line">        if(xhr.status == <span class="number">200</span>)&#123;</span><br><span class="line">            console.log(xhr.responseText)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">xhr.send(null)</span><br></pre></td></tr></table></figure>
+<h3 id="readyState"><a href="#readyState" class="headerlink" title="readyState"></a>readyState</h3><ul>
+<li>0 未初始化</li>
+<li>1 启动 已调用open()</li>
+<li>2 发送 已调用send（）</li>
+<li>3 接收 已接收到部分数据</li>
+<li>4 完成</li>
+</ul>
+<h3 id="http返回码-status"><a href="#http返回码-status" class="headerlink" title="http返回码 status"></a>http返回码 status</h3><ul>
+<li>2xx 成功</li>
+<li>3xx 重定向（会自动跳转）</li>
+<li>4xx 客户端请求错误</li>
+<li>5xx 服务端错误</li>
+</ul>
+<h3 id="跨域"><a href="#跨域" class="headerlink" title="跨域"></a>跨域</h3><p>条件3个条件 1.协议 2.域名 3.端口</p>
+<ul>
+<li>CORS</li>
+<li>jsonp</li>
+</ul>
+<h3 id="Jsonp实现原理"><a href="#Jsonp实现原理" class="headerlink" title="Jsonp实现原理"></a>Jsonp实现原理</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.callback = <span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(data)</span><br><span class="line">&#125;</span><br><span class="line">&lt;script src=<span class="string">"api.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span>      <span class="comment">//返回 callback(&#123;x: 100&#125;)  即调用callback函数</span></span><br></pre></td></tr></table></figure>
+<h2 id="存储"><a href="#存储" class="headerlink" title="存储"></a>存储</h2><h2 id="浏览器性能相关"><a href="#浏览器性能相关" class="headerlink" title="浏览器性能相关"></a>浏览器性能相关</h2><h3 id="浏览器渲染页面过程"><a href="#浏览器渲染页面过程" class="headerlink" title="浏览器渲染页面过程"></a>浏览器渲染页面过程</h3><ul>
+<li>根据HTML结构生成DOM tree</li>
+<li>根据CSS生成CSSOM</li>
+<li>将DOM和CSSM整合形成RenderTree</li>
+<li>根据 RenderTree 开始渲染和展示</li>
+<li>遇到 script标签时，会执行并阻塞渲染 (所以script放在body最后，不会阻塞Dom加载)</li>
+</ul>
+<h3 id="load-amp-DOMContentLoaded-事件"><a href="#load-amp-DOMContentLoaded-事件" class="headerlink" title="load &amp; DOMContentLoaded 事件"></a>load &amp; DOMContentLoaded 事件</h3><ul>
+<li>load 页面全部资源加载完成</li>
+<li>DOM 渲染完即执行，此时图片，视频可能未加载完成</li>
+</ul>
+<h3 id="加载资源加载优化"><a href="#加载资源加载优化" class="headerlink" title="加载资源加载优化"></a>加载资源加载优化</h3><ul>
+<li>静态资源合并（减少、合并静态资源的加载js,css img base64）</li>
+<li>静态资源缓存</li>
+<li>使用CDN</li>
+<li>ssr服务器渲染，数据页面在服务器端完成</li>
+</ul>
+<h4 id="渲染优化"><a href="#渲染优化" class="headerlink" title="渲染优化"></a>渲染优化</h4><ul>
+<li>JS放后面</li>
+<li>懒加载</li>
+<li>减少DOM查询 （缓存在变量中）</li>
+<li>减少DOM操作（尽量合并操作，使用innerHTML操作）</li>
+<li>时间节流（事件的延迟执行，如查询时的输入下拉框）</li>
+<li>今早执行操作 DOMContentLoaded </li>
+</ul>
+<h3 id="安全"><a href="#安全" class="headerlink" title="安全"></a>安全</h3><ol>
+<li>XSS 跨站脚本攻击(Cross Site Scripting) 发送数据中包含script代码（替换关键字如/&lt;）</li>
+<li>CSRF（Cross-site request forgery跨站请求伪造）伪造正确的链接（电子邮件中隐含的虚假链接，增加验证流程）<br>本文简单的介绍Self-XSS(自跨站脚本攻击)、CSRF(跨站请求伪造攻击)和恶意服务器这三种社会工程学的辅助攻击手段, 希望能够给予自认为身处于安全环境中的网民以自知的同时, 学会不惮以最坏的恶意来推测他人.</li>
+</ol>
+<p>Self-XSS<br>XSS(跨站脚本攻击)是一种攻击者在目标网站中嵌入恶意客户端脚本以达到其不可告人目的的攻击行为. 现在大多数的网站都对XSS有所防范, 攻击者已经很难在现代网站上找到可以提交恶意脚本的XSS漏洞.</p>
+<p>在XSS前加上Self, 就是Self-XSS(自跨站脚本攻击), 与Self这个词的意思一样, 这是一种需要受害者自己配合才能成功的XSS攻击行为, 这也是它被我归类为一种社会工程学攻击的原因.</p>
+<p>受害者出于某种原因, 在目标网站上运行了某段由攻击者提供的恶意脚本, 就使得Self-XSS攻击成立. 一些人看到这里可能会嗤之以鼻, 认为自己不会犯下这么低级的错误, 然而事实却是, Self-XSS可以从各种各样的渠道被实现, 尤其是很多没有代码审查能力的”自称极客”所使用的那些工具, 是的, 我说的就是Bookmarklet、Greasemonkey和其他在浏览器上安装的各种Extension, 它们都有可能被用于Self-XSS攻击, 成功的攻击范例数不胜数.</p>
+<p>在Google+打开浏览器控制台, 会发现Google直接打印出了不要在此页面运行脚本的警告, 大多数的现代浏览器的地址栏, 也会在用户粘贴以”javascript:”开头的URL时, 自动去除”javascript:”内容, 可见Self-XSS的危险性.</p>
+<p>CSRF<br>CSRF(Cross-Site Request Forgery)是一种欺骗式的攻击手段, 攻击者会构造一个带有恶意的目标网站的URL, 并引诱受害者点击链接或以其他方式迫使浏览器发出请求来达到攻击者的目的. 是否可以实现CSRF攻击, 与目标网站是否存在可供实现CSRF攻击的漏洞有关. 我们试想这样的一种情况, 目标网站有一个用于删除用户的URL地址, 当然, 只有拥有管理员Cookie的用户才可以通过请求这个URL来删除用户, 攻击者得知这个URL之后, 构造了一个带有欺骗性的链接, 引诱了拥有管理员Cookie的用户的点击, 使得目标用户被成功删除.</p>
+<p>在非现代浏览器或同源策略存在漏洞的IE浏览器上, 可能会产生另一种利用带有Cookie的跨站请求实现的CSRF攻击, 不过只要用户使用大部分先进的现代浏览器, 便很难遭遇这种攻击. 另外, 网站开发者如果能严格遵守RESTful的URL规范和CORS协议, 不构建能通过GET请求对数据库进行增减操作的URL, 也能起到对CSRF攻击一定的防范效果.</p>
+<p>恶意服务器<br>恶意服务器指那些被带有恶意的网站管理员控制的服务器, 是一个宽泛的概念, 恶意服务器有多种用法, 包括但不限于以下几种:</p>
+<p>记录用户输入的错误密码<br>事实上, 有很多网站都可能是恶意服务器, 作为用户, 你不知道他们是否会将你在登录时的错误密码记录下来, 对于同时使用很多种密码的人而言, 这是一个巨大的威胁, 一旦你忘记自己在该网站上的密码, 你就会开始尝试自己常用的几种密码, 而在你使用正确的密码登录服务器之前, 你的错误密码已经被网站后台记录下来, 这在之后可能将被用于其他网站数据库的撞库测试.</p>
+<p>要想避免这种攻击, 只能让网站本身不传输明文密码, 例如在前端的登录环节里加上一道单向加密, 这样你的明文密码才不会被传到服务器上, 当然, 后端也不能因为前端进行了加密, 就放弃双端加密的基本原则, 否则将得不偿失.</p>
+<p>暴露目标用户的真实IP地址<br>这是一种典型的钓鱼手段, 在用户直接接入互联网的情况下, 如果打开了攻击者提供的网站, 那么用户的真实IP地址就很有可能被暴露给了攻击者, 攻击者就可以以此为基础实行其他的攻击.</p>
+<p>不过在中国逐渐局域网化的今天, 这种攻击方式的成功率已经变得越来越低了.</p>
+<p>行为记录<br>用户在网站上的行为, 实际上有可能被一一记录下来, 从这些记录里, 攻击者可以轻易的推算你的作息时间等信息, 网站规模越大, 可能掌握的信息也就越多, 可推测的情报也就越丰富. 一些现代浏览器加入了”防止追踪”的功能, 也是基于同样的考量.</p>
+<p>恶意服务器的可怕之处在于你几乎无法知道你访问的是否是一个恶意服务器, 任何一个大网站都有可能是恶意服务器, 但你又不得不去使用它们提供的服务, 你时刻都有可能处于监视之中, 却无法自知.</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/07/12/ES6/" rel="next" title="ES6的常用功能">
+                <i class="fa fa-chevron-left"></i> ES6的常用功能
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/07/23/读书笔记·失乐园/" rel="prev" title="读书笔记·失乐园">
+                读书笔记·失乐园 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="summerscar">
+            
+              <p class="site-author-name" itemprop="name">summerscar</p>
+              <p class="site-description motion-element" itemprop="description">不会日语的up主不是一个好程序猿</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">51</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/summerscar" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://weibo.com/5508256828" target="_blank" title="Weibo">
+                      
+                        <i class="fa fa-fw fa-globe"></i>Weibo</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:shen.yus@163.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://space.bilibili.com/5248611/" target="_blank" title="BILIBILI">
+                      
+                        <i class="fa fa-fw fa-globe"></i>BILIBILI</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaScript基础整理"><span class="nav-number">1.</span> <span class="nav-text">JavaScript基础整理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#类型"><span class="nav-number">1.1.</span> <span class="nav-text">类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本类型"><span class="nav-number">1.1.1.</span> <span class="nav-text">基本类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引用类型"><span class="nav-number">1.1.2.</span> <span class="nav-text">引用类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本包装类型-amp-特殊引用类型"><span class="nav-number">1.1.3.</span> <span class="nav-text">基本包装类型&amp;特殊引用类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#过程"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">过程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查找字符串中所有字符"><span class="nav-number">1.1.3.2.</span> <span class="nav-text">查找字符串中所有字符</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本类型检查测-typeof"><span class="nav-number">1.1.4.</span> <span class="nav-text">基本类型检查测 typeof</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引用类型检测"><span class="nav-number">1.1.5.</span> <span class="nav-text">引用类型检测</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类型转换"><span class="nav-number">1.1.6.</span> <span class="nav-text">类型转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#"><span class="nav-number">1.1.7.</span> <span class="nav-text">==/===</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内置函数"><span class="nav-number">1.1.8.</span> <span class="nav-text">内置函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组迭代方法"><span class="nav-number">1.1.9.</span> <span class="nav-text">数组迭代方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类数组对象转化为数组"><span class="nav-number">1.1.10.</span> <span class="nav-text">类数组对象转化为数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对象API"><span class="nav-number">1.1.11.</span> <span class="nav-text">对象API</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#object主要属性和方法"><span class="nav-number">1.1.12.</span> <span class="nav-text">object主要属性和方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#垃圾收集"><span class="nav-number">1.1.13.</span> <span class="nav-text">垃圾收集</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对象，原型-原型链-继承"><span class="nav-number">1.2.</span> <span class="nav-text">对象，原型,原型链,继承</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#执行new的过程"><span class="nav-number">1.2.1.</span> <span class="nav-text">执行new的过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建对象的构造函数模式与原型模式"><span class="nav-number">1.2.2.</span> <span class="nav-text">创建对象的构造函数模式与原型模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原型与构造函数组合创建对象"><span class="nav-number">1.2.3.</span> <span class="nav-text">原型与构造函数组合创建对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用操作"><span class="nav-number">1.2.4.</span> <span class="nav-text">常用操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#instanceof"><span class="nav-number">1.2.4.1.</span> <span class="nav-text">instanceof</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#proto"><span class="nav-number">1.2.4.2.</span> <span class="nav-text">proto</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#hasOwnProtperty"><span class="nav-number">1.2.4.3.</span> <span class="nav-text">hasOwnProtperty</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#in操作符"><span class="nav-number">1.2.4.4.</span> <span class="nav-text">in操作符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#constructorof"><span class="nav-number">1.2.4.5.</span> <span class="nav-text">constructorof</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#继承"><span class="nav-number">1.2.5.</span> <span class="nav-text">继承</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#确定原型与实例关系"><span class="nav-number">1.2.5.1.</span> <span class="nav-text">确定原型与实例关系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#原型链继承的例子"><span class="nav-number">1.2.5.2.</span> <span class="nav-text">原型链继承的例子</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#借用构造函数"><span class="nav-number">1.2.5.3.</span> <span class="nav-text">借用构造函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#组合继承"><span class="nav-number">1.2.5.4.</span> <span class="nav-text">组合继承</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数"><span class="nav-number">1.3.</span> <span class="nav-text">函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#callee-amp-caller"><span class="nav-number">1.3.1.</span> <span class="nav-text">callee&amp;caller</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#this"><span class="nav-number">1.3.2.</span> <span class="nav-text">this</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#apply-amp-call"><span class="nav-number">1.3.3.</span> <span class="nav-text">apply&amp;call</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#闭包的应用"><span class="nav-number">1.3.4.</span> <span class="nav-text">闭包的应用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#闭包中this指向（P182）"><span class="nav-number">1.3.5.</span> <span class="nav-text">闭包中this指向（P182）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#块级作用域（私有作用域）"><span class="nav-number">1.3.6.</span> <span class="nav-text">块级作用域（私有作用域）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#私有属性（P186）"><span class="nav-number">1.3.7.</span> <span class="nav-text">私有属性（P186）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#私有变量"><span class="nav-number">1.3.7.1.</span> <span class="nav-text">私有变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#静态私有变量"><span class="nav-number">1.3.7.2.</span> <span class="nav-text">静态私有变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#模块模式"><span class="nav-number">1.3.7.3.</span> <span class="nav-text">模块模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#增强的模块模式"><span class="nav-number">1.3.7.4.</span> <span class="nav-text">增强的模块模式</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DOM"><span class="nav-number">1.4.</span> <span class="nav-text">DOM</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#DOM类型"><span class="nav-number">1.4.1.</span> <span class="nav-text">DOM类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#表格操作的特使方法"><span class="nav-number">1.4.2.</span> <span class="nav-text">表格操作的特使方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DOM对象节点获取"><span class="nav-number">1.4.3.</span> <span class="nav-text">DOM对象节点获取</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义属性data"><span class="nav-number">1.4.4.</span> <span class="nav-text">自定义属性data</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#scrollIntoView-P298"><span class="nav-number">1.4.5.</span> <span class="nav-text">scrollIntoView() (P298)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Attribute-amp-property"><span class="nav-number">1.4.6.</span> <span class="nav-text">Attribute&amp;property</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DOM2与DOM3的变化"><span class="nav-number">1.4.7.</span> <span class="nav-text">DOM2与DOM3的变化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#访问样式"><span class="nav-number">1.4.7.1.</span> <span class="nav-text">访问样式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#cssText"><span class="nav-number">1.4.7.2.</span> <span class="nav-text">cssText</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BOM"><span class="nav-number">1.5.</span> <span class="nav-text">BOM</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#window"><span class="nav-number">1.5.1.</span> <span class="nav-text">window</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#navigator"><span class="nav-number">1.5.2.</span> <span class="nav-text">navigator</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#screen"><span class="nav-number">1.5.3.</span> <span class="nav-text">screen</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#location"><span class="nav-number">1.5.4.</span> <span class="nav-text">location</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#history"><span class="nav-number">1.5.5.</span> <span class="nav-text">history</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事件"><span class="nav-number">1.6.</span> <span class="nav-text">事件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#冒泡-amp-捕获"><span class="nav-number">1.6.1.</span> <span class="nav-text">冒泡&amp;捕获</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事件对象"><span class="nav-number">1.6.2.</span> <span class="nav-text">事件对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTML5事件-P388"><span class="nav-number">1.6.3.</span> <span class="nav-text">HTML5事件(P388)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Canvas"><span class="nav-number">1.7.</span> <span class="nav-text">Canvas</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#合成"><span class="nav-number">1.7.1.</span> <span class="nav-text">合成</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML5脚本编程"><span class="nav-number">1.8.</span> <span class="nav-text">HTML5脚本编程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ajax"><span class="nav-number">1.9.</span> <span class="nav-text">Ajax</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#readyState"><span class="nav-number">1.9.1.</span> <span class="nav-text">readyState</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#http返回码-status"><span class="nav-number">1.9.2.</span> <span class="nav-text">http返回码 status</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#跨域"><span class="nav-number">1.9.3.</span> <span class="nav-text">跨域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Jsonp实现原理"><span class="nav-number">1.9.4.</span> <span class="nav-text">Jsonp实现原理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储"><span class="nav-number">1.10.</span> <span class="nav-text">存储</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#浏览器性能相关"><span class="nav-number">1.11.</span> <span class="nav-text">浏览器性能相关</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#浏览器渲染页面过程"><span class="nav-number">1.11.1.</span> <span class="nav-text">浏览器渲染页面过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#load-amp-DOMContentLoaded-事件"><span class="nav-number">1.11.2.</span> <span class="nav-text">load &amp; DOMContentLoaded 事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#加载资源加载优化"><span class="nav-number">1.11.3.</span> <span class="nav-text">加载资源加载优化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#渲染优化"><span class="nav-number">1.11.3.1.</span> <span class="nav-text">渲染优化</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安全"><span class="nav-number">1.11.4.</span> <span class="nav-text">安全</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">summerscar</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a></div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=62548480";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://summerscar.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://summerscar.me/2017/07/23/JavaScript基础知识/';
+          this.page.identifier = '2017/07/23/JavaScript基础知识/';
+          this.page.title = 'JavaScript基础知识';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://summerscar.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/love.js"></script>
+  
+<div id="hexo-helper-live2d">
+  <canvas id="live2dcanvas" width="150" height="300"></canvas>
+</div>
+<style>
+  #live2dcanvas{
+    position: fixed;
+    width: 150px;
+    height: 300px;
+    opacity:0.9;
+    right: 50px;
+    z-index: 999;
+    pointer-events: none;
+    bottom: -30px;
+  }
+</style>
+<script type="text/javascript" src="/live2d/device.min.js"></script>
+<script type="text/javascript">
+const loadScript = function loadScript(c,b){var a=document.createElement("script");a.type="text/javascript";"undefined"!=typeof b&&(a.readyState?a.onreadystatechange=function(){if("loaded"==a.readyState||"complete"==a.readyState)a.onreadystatechange=null,b()}:a.onload=function(){b()});a.src=c;document.body.appendChild(a)};
+(function(){
+  if((typeof(device) != 'undefined') && (device.mobile())){
+    document.getElementById("live2dcanvas").style.width = '75px';
+    document.getElementById("live2dcanvas").style.height = '150px';
+  }else
+    if (typeof(device) === 'undefined') console.error('Cannot find current-device script.');
+  loadScript("/live2d/script.js", function(){loadlive2d("live2dcanvas", "/live2d/assets/makoto0.model.json", 0.5);});
+})();
+</script>
+
+</body>
+</html>
