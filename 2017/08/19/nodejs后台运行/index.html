@@ -427,20 +427,20 @@
       
         <script src="/assets/js/APlayer.min.js"> </script><p>在服务器linux环境下让nodejs后台运行<br><a id="more"></a></p>
 <h1 id="nohup"><a href="#nohup" class="headerlink" title="nohup"></a>nohup</h1><p>在LINUX中我们可以使用这种简单的方式让node.js在后台运行：</p>
-<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup <span class="keyword">node</span> <span class="title">your_app</span>.js &amp;</span><br></pre></td></tr></table></figure>
-<h1 id="pm2"><a href="#pm2" class="headerlink" title="pm2"></a>pm2</h1><h2 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h2><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pm2 <span class="literal">start</span> app.js</span><br></pre></td></tr></table></figure>
-<h2 id="查看运行状态"><a href="#查看运行状态" class="headerlink" title="查看运行状态"></a>查看运行状态</h2><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pm2 <span class="built_in">list</span></span><br></pre></td></tr></table></figure>
-<h2 id="追踪资源运行情况"><a href="#追踪资源运行情况" class="headerlink" title="追踪资源运行情况"></a>追踪资源运行情况</h2><figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p<span class="name">m2</span> mo<span class="symbol">nit</span></span><br></pre></td></tr></table></figure>
-<h2 id="查看日志"><a href="#查看日志" class="headerlink" title="查看日志"></a>查看日志</h2><figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p<span class="name">m2</span> logs</span><br></pre></td></tr></table></figure>
-<h2 id="重启应用"><a href="#重启应用" class="headerlink" title="重启应用"></a>重启应用</h2><figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p<span class="name">m2</span> restart appId</span><br></pre></td></tr></table></figure>
-<h2 id="停止应用"><a href="#停止应用" class="headerlink" title="停止应用"></a>停止应用</h2><figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pm2 <span class="built_in">stop</span> app.js</span><br></pre></td></tr></table></figure>
-<h2 id="开启api访问"><a href="#开启api访问" class="headerlink" title="开启api访问"></a>开启api访问</h2><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pm2 web</span><br><span class="line"><span class="regexp">//</span>浏览器访问http:<span class="regexp">//</span>localhost:<span class="number">9615</span></span><br></pre></td></tr></table></figure>
-<h1 id="forever"><a href="#forever" class="headerlink" title="forever"></a>forever</h1><p>forever的安装：<br><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="keyword">install</span> forever -g</span><br></pre></td></tr></table></figure></p>
-<p>forever的用法：<br>使用forever启动守护进程：<br><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">forever</span> <span class="built_in">start</span> your_app.js</span><br></pre></td></tr></table></figure></p>
-<p>关闭守护进程：<br><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">forever</span> <span class="built_in">stop</span> your_app.js</span><br></pre></td></tr></table></figure></p>
-<p>重启守护进程：：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">forever</span> <span class="selector-tag">restart</span> <span class="selector-tag">your_app</span><span class="selector-class">.js</span></span><br></pre></td></tr></table></figure></p>
-<p>如果需要记录输出日志和错误：<br><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">forever</span> <span class="built_in">start</span> -l <span class="keyword">forever</span>.<span class="built_in">log</span> -o out.<span class="built_in">log</span> -e err.<span class="built_in">log</span> your_app.js</span><br></pre></td></tr></table></figure></p>
-<p>查看正在运行的程序：<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">forever <span class="built_in">list</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">nohup node your_app.js &amp;</span><br></pre></td></tr></table></figure>
+<h1 id="pm2"><a href="#pm2" class="headerlink" title="pm2"></a>pm2</h1><h2 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pm2 start app.js</span><br></pre></td></tr></table></figure>
+<h2 id="查看运行状态"><a href="#查看运行状态" class="headerlink" title="查看运行状态"></a>查看运行状态</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pm2 list</span><br></pre></td></tr></table></figure>
+<h2 id="追踪资源运行情况"><a href="#追踪资源运行情况" class="headerlink" title="追踪资源运行情况"></a>追踪资源运行情况</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pm2 monit</span><br></pre></td></tr></table></figure>
+<h2 id="查看日志"><a href="#查看日志" class="headerlink" title="查看日志"></a>查看日志</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pm2 logs</span><br></pre></td></tr></table></figure>
+<h2 id="重启应用"><a href="#重启应用" class="headerlink" title="重启应用"></a>重启应用</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pm2 restart appId</span><br></pre></td></tr></table></figure>
+<h2 id="停止应用"><a href="#停止应用" class="headerlink" title="停止应用"></a>停止应用</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pm2 stop app.js</span><br></pre></td></tr></table></figure>
+<h2 id="开启api访问"><a href="#开启api访问" class="headerlink" title="开启api访问"></a>开启api访问</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pm2 web</span><br><span class="line">//浏览器访问http://localhost:9615</span><br></pre></td></tr></table></figure>
+<h1 id="forever"><a href="#forever" class="headerlink" title="forever"></a>forever</h1><p>forever的安装：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install forever -g</span><br></pre></td></tr></table></figure></p>
+<p>forever的用法：<br>使用forever启动守护进程：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">forever start your_app.js</span><br></pre></td></tr></table></figure></p>
+<p>关闭守护进程：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">forever stop your_app.js</span><br></pre></td></tr></table></figure></p>
+<p>重启守护进程：：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">forever restart your_app.js</span><br></pre></td></tr></table></figure></p>
+<p>如果需要记录输出日志和错误：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">forever start -l forever.log -o out.log -e err.log your_app.js</span><br></pre></td></tr></table></figure></p>
+<p>查看正在运行的程序：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">forever list</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -572,7 +572,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">62</span>
+                  <span class="site-state-item-count">63</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

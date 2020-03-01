@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="JavaScript,">
+  <meta name="keywords" content="daily,">
 
 
 
@@ -86,18 +86,18 @@
 
 
 
-<meta name="description" content="最近有点忙了呀，又过上宿舍-公司-食堂-宿舍的生活了，之前闲的慌，现在发现早上7点起床到晚上吃完饭回宿舍8点多了，都几乎没有能完全自己支配的时间了，不过还好啦，公司下班到挺准时的~~然后还是想找些其他提升自己的事做做啦，正好前些时候用了impress写了个demo,那么这次就看看impress.js的源码啦">
-<meta name="keywords" content="JavaScript">
+<meta name="description" content="整理最近看书不太记得的语法">
+<meta name="keywords" content="daily">
 <meta property="og:type" content="article">
-<meta property="og:title" content="impress.js源码阅读">
-<meta property="og:url" content="http://summerscar.me/2017/11/10/impress-js源码阅读/index.html">
+<meta property="og:title" content="语法整理">
+<meta property="og:url" content="http://summerscar.me/2020/03/01/语法整理/index.html">
 <meta property="og:site_name" content="summerscar">
-<meta property="og:description" content="最近有点忙了呀，又过上宿舍-公司-食堂-宿舍的生活了，之前闲的慌，现在发现早上7点起床到晚上吃完饭回宿舍8点多了，都几乎没有能完全自己支配的时间了，不过还好啦，公司下班到挺准时的~~然后还是想找些其他提升自己的事做做啦，正好前些时候用了impress写了个demo,那么这次就看看impress.js的源码啦">
+<meta property="og:description" content="整理最近看书不太记得的语法">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-01-01T10:57:16.260Z">
+<meta property="og:updated_time" content="2020-03-01T10:05:53.563Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="impress.js源码阅读">
-<meta name="twitter:description" content="最近有点忙了呀，又过上宿舍-公司-食堂-宿舍的生活了，之前闲的慌，现在发现早上7点起床到晚上吃完饭回宿舍8点多了，都几乎没有能完全自己支配的时间了，不过还好啦，公司下班到挺准时的~~然后还是想找些其他提升自己的事做做啦，正好前些时候用了impress写了个demo,那么这次就看看impress.js的源码啦">
+<meta name="twitter:title" content="语法整理">
+<meta name="twitter:description" content="整理最近看书不太记得的语法">
 
 
 
@@ -127,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="http://summerscar.me/2017/11/10/impress-js源码阅读/">
+  <link rel="canonical" href="http://summerscar.me/2020/03/01/语法整理/">
 
 
 
 
 
-  <title>impress.js源码阅读 | summerscar</title>
+  <title>语法整理 | summerscar</title>
   
 
 
@@ -321,7 +321,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://summerscar.me/2017/11/10/impress-js源码阅读/">
+    <link itemprop="mainEntityOfPage" href="http://summerscar.me/2020/03/01/语法整理/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="summerscar">
@@ -338,7 +338,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">impress.js源码阅读</h1>
+          <h1 class="post-title" itemprop="name headline">语法整理</h1>
         
 
         <div class="post-meta">
@@ -350,8 +350,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-10T11:51:36+08:00">
-                2017-11-10
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-01T15:50:38+08:00">
+                2020-03-01
               </time>
             
 
@@ -373,8 +373,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/Code/" itemprop="url" rel="index">
-                    <span itemprop="name">Code</span>
+                  <a href="/categories/Daily/" itemprop="url" rel="index">
+                    <span itemprop="name">Daily</span>
                   </a>
                 </span>
 
@@ -391,8 +391,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/11/10/impress-js源码阅读/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/11/10/impress-js源码阅读/" itemprop="commentCount"></span>
+                <a href="/2020/03/01/语法整理/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2020/03/01/语法整理/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -425,18 +425,181 @@
       
 
       
-        <script src="/assets/js/APlayer.min.js"> </script><p>最近有点忙了呀，又过上宿舍-公司-食堂-宿舍的生活了，之前闲的慌，现在发现早上7点起床到晚上吃完饭回宿舍8点多了，都几乎没有能完全自己支配的时间了，不过还好啦，公司下班到挺准时的~~<br>然后还是想找些其他提升自己的事做做啦，正好前些时候用了impress写了个demo,那么这次就看看impress.js的源码啦<br><a id="more"></a></p>
-<h1 id="impress-js源码阅读"><a href="#impress-js源码阅读" class="headerlink" title="impress.js源码阅读"></a>impress.js源码阅读</h1><h2 id="CSS前缀的兼容处理"><a href="#CSS前缀的兼容处理" class="headerlink" title="CSS前缀的兼容处理"></a>CSS前缀的兼容处理</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> pfx = ( <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> style = <span class="built_in">document</span>.createElement( <span class="string">"dummy"</span> ).style,</span><br><span class="line">            prefixes = <span class="string">"Webkit Moz O ms Khtml"</span>.split( <span class="string">" "</span> ),</span><br><span class="line">            <span class="comment">// 此处算是个闭包，做记忆</span></span><br><span class="line">            memory = &#123;&#125;;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// prop为css属性</span></span><br><span class="line">        <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"> prop </span>) </span>&#123;</span><br><span class="line">            <span class="comment">// 如果memoory对象中为存储该属性时</span></span><br><span class="line">            <span class="keyword">if</span> ( <span class="keyword">typeof</span> memory[ prop ] === <span class="string">"undefined"</span> ) &#123;</span><br><span class="line">                <span class="comment">// 首字母大写</span></span><br><span class="line">                <span class="keyword">var</span> ucProp  = prop.charAt( <span class="number">0</span> ).toUpperCase() + prop.substr( <span class="number">1</span> ),</span><br><span class="line">                <span class="comment">// 此处处理为如下： transition webkitTransition MozTransition</span></span><br><span class="line">                    props   = ( prop + <span class="string">" "</span> + prefixes.join( ucProp + <span class="string">" "</span> ) + ucProp ).split( <span class="string">" "</span> );</span><br><span class="line">                <span class="comment">// 创建该属性对象</span></span><br><span class="line">                memory[ prop ] = <span class="literal">null</span>;</span><br><span class="line">                <span class="keyword">for</span> ( <span class="keyword">var</span> i <span class="keyword">in</span> props ) &#123;</span><br><span class="line">                    <span class="comment">// 判断该属性是否存在</span></span><br><span class="line">                    <span class="keyword">if</span> ( style[ props[ i ] ] !== <span class="literal">undefined</span> ) &#123;</span><br><span class="line">                        <span class="comment">// 给上一个可用前缀的属性名并且break出去</span></span><br><span class="line">                        memory[ prop ] = props[ i ];</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 返回这个可用的属性</span></span><br><span class="line">            <span class="keyword">return</span> memory[ prop ];</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">    &#125; )();</span><br></pre></td></tr></table></figure>
-<h2 id="处理类数组"><a href="#处理类数组" class="headerlink" title="处理类数组"></a>处理类数组</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 将类数组转换为数组也可用于数组的克隆</span></span><br><span class="line">  <span class="keyword">var</span> arrayify = <span class="function"><span class="keyword">function</span>(<span class="params"> a </span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> [].slice.call( a );</span><br><span class="line">  &#125;;</span><br></pre></td></tr></table></figure>
-<h2 id="设置css的对象"><a href="#设置css的对象" class="headerlink" title="设置css的对象"></a>设置css的对象</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 传入DOM元素以及包含CSS属性的对象，并且通过pfx设置浏览器兼容属性</span></span><br><span class="line"><span class="comment">// 传入的对象如： &#123;width：'10px';height: '10px'&#125;</span></span><br><span class="line"><span class="keyword">var</span> css = <span class="function"><span class="keyword">function</span>(<span class="params"> el, props </span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> key, pkey;</span><br><span class="line">    <span class="keyword">for</span> ( key <span class="keyword">in</span> props ) &#123;</span><br><span class="line">        <span class="keyword">if</span> ( props.hasOwnProperty( key ) ) &#123;</span><br><span class="line">            <span class="comment">// 做css的兼容处理</span></span><br><span class="line">            pkey = pfx( key );</span><br><span class="line">            <span class="keyword">if</span> ( pkey !== <span class="literal">null</span> ) &#123;</span><br><span class="line">                el.style[ pkey ] = props[ key ];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> el;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h2 id="处理数字"><a href="#处理数字" class="headerlink" title="处理数字"></a>处理数字</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 判断是否为数字，若不是数字则执行fallback，若未传入fallback则返回0，如果是数字，则处理为数字</span></span><br><span class="line">  <span class="keyword">var</span> toNumber = <span class="function"><span class="keyword">function</span>(<span class="params"> numeric, fallback </span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="built_in">isNaN</span>( numeric ) ? ( fallback || <span class="number">0</span> ) : <span class="built_in">Number</span>( numeric );</span><br><span class="line">  &#125;;</span><br></pre></td></tr></table></figure>
-<h2 id="元素选择器"><a href="#元素选择器" class="headerlink" title="元素选择器"></a>元素选择器</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 传入上下文和CSS选择器，若未传入上下文则使用document，返回匹配的第一个元素</span></span><br><span class="line"><span class="keyword">var</span> $ = <span class="function"><span class="keyword">function</span>(<span class="params"> selector, context </span>) </span>&#123;</span><br><span class="line">    context = context || <span class="built_in">document</span>;</span><br><span class="line">    <span class="keyword">return</span> context.querySelector( selector );</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 传入部分同上，返回匹配的所有元素，并且数组化</span></span><br><span class="line"> <span class="keyword">var</span> $$ = <span class="function"><span class="keyword">function</span>(<span class="params"> selector, context </span>) </span>&#123;</span><br><span class="line">     context = context || <span class="built_in">document</span>;</span><br><span class="line">     <span class="keyword">return</span> arrayify( context.querySelectorAll( selector ) );</span><br><span class="line"> &#125;;</span><br></pre></td></tr></table></figure>
-<h2 id="事件触发器"><a href="#事件触发器" class="headerlink" title="事件触发器"></a>事件触发器</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 事件的触发器</span></span><br><span class="line"><span class="comment">// 传入触发元素，事件名</span></span><br><span class="line"><span class="keyword">var</span> triggerEvent = <span class="function"><span class="keyword">function</span>(<span class="params"> el, eventName, detail </span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> event = <span class="built_in">document</span>.createEvent( <span class="string">"CustomEvent"</span> );</span><br><span class="line">    event.initCustomEvent( eventName, <span class="literal">true</span>, <span class="literal">true</span>, detail );</span><br><span class="line">    el.dispatchEvent( event );</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h2 id="根据网址的hash获取dom元素"><a href="#根据网址的hash获取dom元素" class="headerlink" title="根据网址的hash获取dom元素"></a>根据网址的hash获取dom元素</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> getElementFromHash = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Get id from url # by removing `#` or `#/` from the beginning,</span></span><br><span class="line">    <span class="comment">// so both "fallback" `#slide-id` and "enhanced" `#/slide-id` will work</span></span><br><span class="line">    <span class="keyword">return</span> byId( <span class="built_in">window</span>.location.hash.replace( <span class="regexp">/^#\/?/</span>, <span class="string">""</span> ) );</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h2 id="设备兼容性的判断"><a href="#设备兼容性的判断" class="headerlink" title="设备兼容性的判断"></a>设备兼容性的判断</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> ua = navigator.userAgent.toLowerCase();</span><br><span class="line"><span class="keyword">var</span> impressSupported =</span><br><span class="line"></span><br><span class="line">                      <span class="comment">// Browser should support CSS 3D transtorms</span></span><br><span class="line">                      <span class="comment">// 是否包含透视属性</span></span><br><span class="line">                       ( pfx( <span class="string">"perspective"</span> ) !== <span class="literal">null</span> ) &amp;&amp;</span><br><span class="line"></span><br><span class="line">                      <span class="comment">// Browser should support `classList` and `dataset` APIs</span></span><br><span class="line">                      <span class="comment">// 是否支持Data属性</span></span><br><span class="line">                       ( body.classList ) &amp;&amp;</span><br><span class="line">                       ( body.dataset ) &amp;&amp;</span><br><span class="line"></span><br><span class="line">                      <span class="comment">// But some mobile devices need to be blacklisted,</span></span><br><span class="line">                      <span class="comment">// because their CSS 3D support or hardware is not</span></span><br><span class="line">                      <span class="comment">// good enough to run impress.js properly, sorry...</span></span><br><span class="line">                      <span class="comment">// 去除对移动设备的支持</span></span><br><span class="line">                       ( ua.search( <span class="regexp">/(iphone)|(ipod)|(android)/</span> ) === <span class="number">-1</span> );</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> ( !impressSupported ) &#123;</span><br><span class="line">    <span class="comment">// We can't be sure that `classList` is supported</span></span><br><span class="line">    body.className += <span class="string">" impress-not-supported "</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    body.classList.remove( <span class="string">"impress-not-supported"</span> );</span><br><span class="line">    body.classList.add( <span class="string">"impress-supported"</span> );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="移动端添加meta信息"><a href="#移动端添加meta信息" class="headerlink" title="移动端添加meta信息"></a>移动端添加meta信息</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> meta = $( <span class="string">"meta[name='viewport']"</span> ) || <span class="built_in">document</span>.createElement( <span class="string">"meta"</span> );</span><br><span class="line">      meta.content = <span class="string">"width=device-width, minimum-scale=1, maximum-scale=1, user-scalable=no"</span>;</span><br><span class="line">      <span class="comment">//  此处用于没有viewport的情况，设置好name并且将该元素放入head中</span></span><br><span class="line">      <span class="keyword">if</span> ( meta.parentNode !== <span class="built_in">document</span>.head ) &#123;</span><br><span class="line">          meta.name = <span class="string">"viewport"</span>;</span><br><span class="line">          <span class="built_in">document</span>.head.appendChild( meta );</span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure>
-<h2 id="函数防抖"><a href="#函数防抖" class="headerlink" title="函数防抖"></a>函数防抖</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> throttle = <span class="function"><span class="keyword">function</span>(<span class="params"> fn, delay </span>) </span>&#123;</span><br><span class="line">     <span class="keyword">var</span> timer = <span class="literal">null</span>;</span><br><span class="line">     <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">         <span class="keyword">var</span> context = <span class="keyword">this</span>, args = <span class="built_in">arguments</span>;</span><br><span class="line">         clearTimeout( timer );</span><br><span class="line">         timer = setTimeout( <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">             fn.apply( context, args );</span><br><span class="line">         &#125;, delay );</span><br><span class="line">     &#125;;</span><br><span class="line"> &#125;;</span><br><span class="line"></span><br><span class="line"> <span class="comment">//  这样写可以得到正确的this</span></span><br><span class="line"> <span class="keyword">var</span> throttle = <span class="function"><span class="keyword">function</span>(<span class="params"> fn, delay </span>) </span>&#123;</span><br><span class="line">     <span class="keyword">var</span> timer = <span class="literal">null</span>;</span><br><span class="line">     <span class="comment">// 这里使用箭头函数可以获得正确的this，调用的时候应该使用普通的函数定义方式，否则无法绑定正确的this</span></span><br><span class="line">     <span class="keyword">return</span> <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">         <span class="keyword">var</span> context = <span class="keyword">this</span>, args = <span class="built_in">arguments</span>;</span><br><span class="line">         clearTimeout( timer );</span><br><span class="line">         timer = setTimeout( <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">             fn.apply( context, args );</span><br><span class="line">         &#125;, delay );</span><br><span class="line">     &#125;;</span><br><span class="line"> &#125;;</span><br></pre></td></tr></table></figure>
+        <script src="/assets/js/APlayer.min.js"> </script><p>整理最近看书不太记得的语法</p>
+<a id="more"></a>
+<h1 id="语法整理"><a href="#语法整理" class="headerlink" title="语法整理"></a>语法整理</h1><p>《日语基础写作》　河野保博</p>
+<h2 id="助词的使用"><a href="#助词的使用" class="headerlink" title="助词的使用"></a>助词的使用</h2><h3 id="「で」と「を」の間違い"><a href="#「で」と「を」の間違い" class="headerlink" title="「で」と「を」の間違い"></a>「で」と「を」の間違い</h3><ol>
+<li><p>人・ものが通る場所　＋　「を」</p>
+<p> おお通りを歩く</p>
+<p> 公園の中を走る</p>
+<p> 飛行機が空を飛ぶ</p>
+</li>
+<li><p>人・ものが離れる場所　＋「を」</p>
+<p> １０時にうちを出る</p>
+<p> 船が港を離れる</p>
+<p> 来年大学を卒業する</p>
+</li>
+<li><p>訪ねる　訪れる　訪問する</p>
+<p> 村の歴史をよく知っている老人を訪ねる</p>
+<p> 友人のお見舞いで病院を訪れる</p>
+<p> 先生の研究室を訪問する</p>
+</li>
+</ol>
+<h3 id="「を」と「に」の間違い"><a href="#「を」と「に」の間違い" class="headerlink" title="「を」と「に」の間違い"></a>「を」と「に」の間違い</h3><ol>
+<li><p>表达对对方的意见/想法 「に」</p>
+<p> 部長に賛成する</p>
+<p> その先生は女子学生にやさしい</p>
+</li>
+<li><p>情感迅速变化的原因 「に」</p>
+<p> 先生の言葉に安心する</p>
+<p> まずいご飯にがっかりする</p>
+</li>
+<li><p>长久持续性的情感</p>
+<p> 日本の生活を楽しむ</p>
+<p> 娘の帰りを心配する</p>
+</li>
+<li><p>细微差别</p>
+<p> 恋に落ちる</p>
+<p> 彼女に恋する</p>
+<p> 彼女を愛する</p>
+</li>
+</ol>
+<h3 id="「を」と「が」の間違い"><a href="#「を」と「が」の間違い" class="headerlink" title="「を」と「が」の間違い"></a>「を」と「が」の間違い</h3><ol>
+<li><p>感觉的对象 / 情感 / 评价 + が</p>
+<p> 私は頭が痛い</p>
+<p> 娘は目が痒いらしい</p>
+<p> 彼女は料理が上手だ</p>
+<p> ドイツ人はビールが好きだ</p>
+</li>
+<li><p>表示希望可能的对象  が・を</p>
+<p> 息子は携帯電話「が・を」欲しいようだ</p>
+<p> 私は水「が・を」飲みたい</p>
+<p> 漢字「が・を」読める人が増えるだろう</p>
+</li>
+</ol>
+<h3 id="复合助词"><a href="#复合助词" class="headerlink" title="复合助词"></a>复合助词</h3><p>「によって」　用于表原因、受身动作主体</p>
+<pre><code>自身によって多くの家が倒壊した　（原因）
+
+寺は太子によって建てられた   （受身）
+</code></pre><p>「にとれば・によると」　表达所得情报</p>
+<pre><code>天気予報による。。。
+</code></pre><h3 id="「は」と「が」の間違い"><a href="#「は」と「が」の間違い" class="headerlink" title="「は」と「が」の間違い"></a>「は」と「が」の間違い</h3><p>が　表示背景（未知情报）</p>
+<p>は　表示主题（已知情报）</p>
+<pre><code>昔々、なになにがなになに。なになにはなになに。　（先交代背景，后引出主题）
+</code></pre><p>が　连接（すぐ後ろの）之后的述語</p>
+<p>は　连接（遠く）之后的述語</p>
+<p>  <strong><em>日本は</em></strong>　<strong>日本人</strong> が <strong>思っている</strong>ほど　狭い <strong><em>国ではない</em></strong></p>
+<p>は　　表示对比</p>
+<pre><code>兄は背が高い、弟は背が低い
+</code></pre><h2 id="短语使用的区分"><a href="#短语使用的区分" class="headerlink" title="短语使用的区分"></a>短语使用的区分</h2><h3 id="「そう」の使うかた"><a href="#「そう」の使うかた" class="headerlink" title="「そう」の使うかた"></a>「そう」の使うかた</h3><p>１　伝聞　　普通形　＋　そうだ</p>
+<pre><code>天気予報によると、明日は雪になるそうだ
+</code></pre><p>２　様態　　ます形・<del>い</del>・<del>な</del>　＋　そうだ</p>
+<pre><code>間も無く雪になりそうだ
+
+彼女はとてもうれしそうだ
+
+元気そうだ
+</code></pre><h3 id="「なくて」と「ないで」"><a href="#「なくて」と「ないで」" class="headerlink" title="「なくて」と「ないで」"></a>「なくて」と「ないで」</h3><p>なくて　原因・理由を表わす</p>
+<pre><code>旅行に行きなくて困った 
+</code></pre><p>ないで　前のことをしない状態で後ろのことをするとき</p>
+<pre><code>窓を閉めないで寝る
+</code></pre><h2 id="文末表现"><a href="#文末表现" class="headerlink" title="文末表现"></a>文末表现</h2><p>１　「と思う」と「と思っている」</p>
+<p>  ⑴　と思う</p>
+<p>  表达自己的思考</p>
+<p>  ⑵　と思っている</p>
+<p>  ① 强调与以前不同的「现在」</p>
+<pre><code>以前はなになにと思っている、今はなになにと思っている
+</code></pre><p>  ② 强调从以前延续至今</p>
+<pre><code>日本に来てからパソコンが買いたいとずっと思っている
+</code></pre><p>  ③ 他人的想法</p>
+<pre><code>みんなは彼が犯人だと思っている
+</code></pre><p>２　「と思う」「と思われる」　「と思える」</p>
+<p>  ⑴　と思う　主观性强</p>
+<p>  ⑵　と思われる　客观性强  说服力最强（如被认为犯法）</p>
+<p>  ⑶　と思える  叙述个人想法，语气显弱</p>
+<p>  ⑷　という・と言っている 非本人所说  / と言える　　本人所说</p>
+<h2 id="指示词-こ・そ・あ"><a href="#指示词-こ・そ・あ" class="headerlink" title="指示词 こ・そ・あ"></a>指示词 こ・そ・あ</h2><p>１　「あ」</p>
+<p>文章中一般不出现</p>
+<p>２　「こ」</p>
+<p>  ⑴　指示后面的内容</p>
+<pre><code>友人にこんな話が聞いた。（話し言葉）
+</code></pre><p>  ⑵　「今」・「ここ」・「わたし」と関係あるとき</p>
+<pre><code>この時間　この国　この経験
+</code></pre><p>  ⑶　指示后文（远）内容/总结上文内容</p>
+<pre><code>このように　こうして
+</code></pre><p>２　「そ」</p>
+<p>  ⑴　指示 指示词的 一部分</p>
+<pre><code>「トルコ進行曲」という曲を書いた作曲家がいる。その作曲家はモーツアルト。　（指示前句主题中的部分内容）
+</code></pre><p>  ⑵ 接续词</p>
+<pre><code>それから　　そして
+</code></pre><p>  ⑶ 同主语时，对前文内容的附加  对用于意外的情况</p>
+<pre><code>妹は子供の頃恥ずかしがり屋で、人前に出ると真っ赤になって下に向いていた。その妹は今女優になっている。
+</code></pre><p>  ⑷　指示不明确的内容</p>
+<pre><code>わたしは今一番やりたいことがあって、それは自転車で日本全国を回ることです。
+</code></pre><h2 id="敬语"><a href="#敬语" class="headerlink" title="敬语"></a>敬语</h2><p>《日本语》 金田一春彦</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>てやる・てあげる・て差し上げる</th>
+<th>てくれる・てくださる</th>
+<th>てもらう・ていただく</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>与益者</td>
+<td>自己/他人</td>
+<td>他人</td>
+<td>主语之外</td>
+</tr>
+<tr>
+<td>受益者</td>
+<td>他人</td>
+<td>自己</td>
+<td>主语</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>敬语</th>
+<th>一般</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>いかが</td>
+<td>どう</td>
+</tr>
+<tr>
+<td>さよう</td>
+<td>そう</td>
+</tr>
+<tr>
+<td>いたす</td>
+<td>する</td>
+</tr>
+<tr>
+<td>参る</td>
+<td>行き・来る</td>
+</tr>
+<tr>
+<td>　申す</td>
+<td>いう</td>
+</tr>
+<tr>
+<td>存ずる</td>
+<td>思う・知る</td>
+</tr>
+<tr>
+<td>ござる</td>
+<td>ある</td>
+</tr>
+</tbody>
+</table>
+
       
     </div>
     
@@ -453,7 +616,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+            <a href="/tags/daily/" rel="tag"># daily</a>
           
         </div>
       
@@ -466,8 +629,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/10/09/impress-js的可视化编辑/" rel="next" title="impress.js的可视化编辑">
-                <i class="fa fa-chevron-left"></i> impress.js的可视化编辑
+              <a href="/2020/01/27/東京花火/" rel="next" title="早稲田大学よさこいチーム東京花火">
+                <i class="fa fa-chevron-left"></i> 早稲田大学よさこいチーム東京花火
               </a>
             
           </div>
@@ -475,10 +638,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/11/14/python学习/" rel="prev" title="python学习">
-                python学习 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -656,7 +815,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#impress-js源码阅读"><span class="nav-number">1.</span> <span class="nav-text">impress.js源码阅读</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS前缀的兼容处理"><span class="nav-number">1.1.</span> <span class="nav-text">CSS前缀的兼容处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#处理类数组"><span class="nav-number">1.2.</span> <span class="nav-text">处理类数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置css的对象"><span class="nav-number">1.3.</span> <span class="nav-text">设置css的对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#处理数字"><span class="nav-number">1.4.</span> <span class="nav-text">处理数字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#元素选择器"><span class="nav-number">1.5.</span> <span class="nav-text">元素选择器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事件触发器"><span class="nav-number">1.6.</span> <span class="nav-text">事件触发器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#根据网址的hash获取dom元素"><span class="nav-number">1.7.</span> <span class="nav-text">根据网址的hash获取dom元素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设备兼容性的判断"><span class="nav-number">1.8.</span> <span class="nav-text">设备兼容性的判断</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#移动端添加meta信息"><span class="nav-number">1.9.</span> <span class="nav-text">移动端添加meta信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数防抖"><span class="nav-number">1.10.</span> <span class="nav-text">函数防抖</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#语法整理"><span class="nav-number">1.</span> <span class="nav-text">语法整理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#助词的使用"><span class="nav-number">1.1.</span> <span class="nav-text">助词的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#「で」と「を」の間違い"><span class="nav-number">1.1.1.</span> <span class="nav-text">「で」と「を」の間違い</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#「を」と「に」の間違い"><span class="nav-number">1.1.2.</span> <span class="nav-text">「を」と「に」の間違い</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#「を」と「が」の間違い"><span class="nav-number">1.1.3.</span> <span class="nav-text">「を」と「が」の間違い</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#复合助词"><span class="nav-number">1.1.4.</span> <span class="nav-text">复合助词</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#「は」と「が」の間違い"><span class="nav-number">1.1.5.</span> <span class="nav-text">「は」と「が」の間違い</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#短语使用的区分"><span class="nav-number">1.2.</span> <span class="nav-text">短语使用的区分</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#「そう」の使うかた"><span class="nav-number">1.2.1.</span> <span class="nav-text">「そう」の使うかた</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#「なくて」と「ないで」"><span class="nav-number">1.2.2.</span> <span class="nav-text">「なくて」と「ないで」</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文末表现"><span class="nav-number">1.3.</span> <span class="nav-text">文末表现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#指示词-こ・そ・あ"><span class="nav-number">1.4.</span> <span class="nav-text">指示词 こ・そ・あ</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#敬语"><span class="nav-number">1.5.</span> <span class="nav-text">敬语</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -848,9 +1007,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://summerscar.me/2017/11/10/impress-js源码阅读/';
-          this.page.identifier = '2017/11/10/impress-js源码阅读/';
-          this.page.title = 'impress.js源码阅读';
+          this.page.url = 'http://summerscar.me/2020/03/01/语法整理/';
+          this.page.identifier = '2020/03/01/语法整理/';
+          this.page.title = '语法整理';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://summerscar.disqus.com/embed.js';
