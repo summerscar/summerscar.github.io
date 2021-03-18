@@ -86,18 +86,18 @@
 
 
 
-<meta name="description" content="自从开始写React，就没怎么碰过动画的问题了 一是因为Vue内置了动画功能，只需要简单配置就能使用二是产品水平有限，连基本功能都设计不好也别提提高用户体验了 花了点时间跟着这篇博客走了一遍">
+<meta name="description" content="自从开始写React，就没怎么碰过动画的问题了 一是因为Vue内置了动画功能，只需要简单配置就能使用二是产品水平有限，连基本功能都设计不好也别提提高用户体验了 花了点时间跟着这篇博客走了一遍 核心： 重新排序(Last)后将元素置为未排序（First）时的位置（Invert），渲染下一帧时清除 style 使其归位（Play） CodeSandBox">
 <meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="FLIP动画">
 <meta property="og:url" content="http://summerscar.me/2021/03/17/FLIP动画/index.html">
 <meta property="og:site_name" content="summerscar">
-<meta property="og:description" content="自从开始写React，就没怎么碰过动画的问题了 一是因为Vue内置了动画功能，只需要简单配置就能使用二是产品水平有限，连基本功能都设计不好也别提提高用户体验了 花了点时间跟着这篇博客走了一遍">
+<meta property="og:description" content="自从开始写React，就没怎么碰过动画的问题了 一是因为Vue内置了动画功能，只需要简单配置就能使用二是产品水平有限，连基本功能都设计不好也别提提高用户体验了 花了点时间跟着这篇博客走了一遍 核心： 重新排序(Last)后将元素置为未排序（First）时的位置（Invert），渲染下一帧时清除 style 使其归位（Play） CodeSandBox">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2021-03-17T10:54:53.244Z">
+<meta property="og:updated_time" content="2021-03-18T10:16:05.332Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="FLIP动画">
-<meta name="twitter:description" content="自从开始写React，就没怎么碰过动画的问题了 一是因为Vue内置了动画功能，只需要简单配置就能使用二是产品水平有限，连基本功能都设计不好也别提提高用户体验了 花了点时间跟着这篇博客走了一遍">
+<meta name="twitter:description" content="自从开始写React，就没怎么碰过动画的问题了 一是因为Vue内置了动画功能，只需要简单配置就能使用二是产品水平有限，连基本功能都设计不好也别提提高用户体验了 花了点时间跟着这篇博客走了一遍 核心： 重新排序(Last)后将元素置为未排序（First）时的位置（Invert），渲染下一帧时清除 style 使其归位（Play） CodeSandBox">
 
 
 
@@ -429,6 +429,8 @@
         <script src="/assets/js/APlayer.min.js"> </script><p>自从开始写React，就没怎么碰过动画的问题了</p>
 <p>一是因为Vue内置了动画功能，只需要简单配置就能使用<br>二是产品水平有限，连基本功能都设计不好也别提提高用户体验了</p>
 <p>花了点时间跟着这篇<a href="https://medium.com/developers-writing/animating-the-unanimatable-1346a5aab3cd" target="_blank" rel="noopener">博客</a>走了一遍</p>
+<p>核心： 重新排序(Last)后将元素置为未排序（First）时的位置（Invert），渲染下一帧时清除 style 使其归位（Play）</p>
+<p><a href="https://codesandbox.io/s/fliptest-eowr7?from-embed" target="_blank" rel="noopener">CodeSandBox</a></p>
 <iframe src="https://codesandbox.io/embed/fliptest-eowr7?fontsize=14&hidenavigation=1&theme=dark" style="width:100%; height:550px; border:0; border-radius: 4px; overflow:hidden;" title="FLIP_test" allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking" sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts">
 </iframe>
       
@@ -469,6 +471,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2021/03/18/Switch动画/" rel="prev" title="Switch动画">
+                Switch动画 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -548,7 +554,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">69</span>
+                  <span class="site-state-item-count">70</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

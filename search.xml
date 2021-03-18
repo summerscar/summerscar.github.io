@@ -1,9 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Switch动画]]></title>
+    <url>%2F2021%2F03%2F18%2FSwitch%E5%8A%A8%E7%94%BB%2F</url>
+    <content type="text"><![CDATA[昨天整了一下FLIP动画，今天用 React 实现一个 Vue 中常用的 v-if/v-else 动画 核心： 父组件识别并控制子组件的渲染时机，并赋予对应的 class/style，使得Dom切换动画无缝连接 CodeSandBox]]></content>
+      <categories>
+        <category>Code</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[FLIP动画]]></title>
     <url>%2F2021%2F03%2F17%2FFLIP%E5%8A%A8%E7%94%BB%2F</url>
-    <content type="text"><![CDATA[自从开始写React，就没怎么碰过动画的问题了 一是因为Vue内置了动画功能，只需要简单配置就能使用二是产品水平有限，连基本功能都设计不好也别提提高用户体验了 花了点时间跟着这篇博客走了一遍]]></content>
+    <content type="text"><![CDATA[自从开始写React，就没怎么碰过动画的问题了 一是因为Vue内置了动画功能，只需要简单配置就能使用二是产品水平有限，连基本功能都设计不好也别提提高用户体验了 花了点时间跟着这篇博客走了一遍 核心： 重新排序(Last)后将元素置为未排序（First）时的位置（Invert），渲染下一帧时清除 style 使其归位（Play） CodeSandBox]]></content>
       <categories>
         <category>Code</category>
       </categories>
