@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[while (true) !== 阻塞]]></title>
+    <url>%2F2021%2F04%2F07%2Fwhile-true-%E9%98%BB%E5%A1%9E%2F</url>
+    <content type="text"><![CDATA[while (true) &#123; // code&#125; 我还真没写过这样的代码，在看 ScratchAddons 源码的时候看到好些 addon 在 function 开头都有这样的代码。那这样不就死循环了么？ 场景addon 需要等待页面所需的 dom 加载完成后再执行，于是有了这样的代码。如果是我那应该就是用 observer 或 settimeout 去处理。 while (true)在 scratchAddon 这个框架下，官方插件都是使用框架 api 配合 while (true) 来确认元素的加载。 原理也很简单， 就是 async await 。 Demo: const getSomeThing = (() =&gt; &#123; let loadedFlag = false return () =&gt; &#123; return new Promise((resolve) =&gt; &#123; if (!loadedFlag) &#123; loadedFlag = true resolve('found') &#125; // 如果已经resolve过，则不再resolve &#125;) &#125;&#125;)();(async () =&gt; &#123; while (true) &#123; let someThing = await getSomeThing() console.log(someThing) &#125;&#125;)() 在 await 成功过一次之后，不再 resolve/reject，保持 Promise 的挂起状态，就可以绕过 while (true) 这个死循环了]]></content>
+      <categories>
+        <category>Code</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Switch动画]]></title>
     <url>%2F2021%2F03%2F18%2FSwitch%E5%8A%A8%E7%94%BB%2F</url>
     <content type="text"><![CDATA[昨天整了一下FLIP动画，今天用 React 实现一个 Vue 中常用的 v-if/v-else 动画 核心： 父组件识别并控制子组件的渲染时机，并赋予对应的 class/style，使得Dom切换动画无缝连接 CodeSandBox]]></content>
