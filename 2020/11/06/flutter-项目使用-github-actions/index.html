@@ -89,14 +89,14 @@
 <meta name="description" content="最近学了下flutter相关的内容，在项目打包的时候发现一个问题，在不同的电脑以及github actions打包出来的apk,在安装到手机时，都会提示（使用adb命令安装可以看到log）package 签名不一致的问题，导致需要先卸载才能安装。">
 <meta name="keywords" content="code">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Flutter项目在Github Actions中使用唯一签名打包">
+<meta property="og:title" content="Flutter项目在Github Actions中使用唯一签名打包 &#x2F; Electron 打包">
 <meta property="og:url" content="http://summerscar.me/2020/11/06/flutter-项目使用-github-actions/index.html">
 <meta property="og:site_name" content="summerscar">
 <meta property="og:description" content="最近学了下flutter相关的内容，在项目打包的时候发现一个问题，在不同的电脑以及github actions打包出来的apk,在安装到手机时，都会提示（使用adb命令安装可以看到log）package 签名不一致的问题，导致需要先卸载才能安装。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-11-06T06:51:21.952Z">
+<meta property="og:updated_time" content="2021-06-02T09:32:23.900Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Flutter项目在Github Actions中使用唯一签名打包">
+<meta name="twitter:title" content="Flutter项目在Github Actions中使用唯一签名打包 &#x2F; Electron 打包">
 <meta name="twitter:description" content="最近学了下flutter相关的内容，在项目打包的时候发现一个问题，在不同的电脑以及github actions打包出来的apk,在安装到手机时，都会提示（使用adb命令安装可以看到log）package 签名不一致的问题，导致需要先卸载才能安装。">
 
 
@@ -133,7 +133,7 @@
 
 
 
-  <title>Flutter项目在Github Actions中使用唯一签名打包 | summerscar</title>
+  <title>Flutter项目在Github Actions中使用唯一签名打包 / Electron 打包 | summerscar</title>
   
 
 
@@ -338,7 +338,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Flutter项目在Github Actions中使用唯一签名打包</h1>
+          <h1 class="post-title" itemprop="name headline">Flutter项目在Github Actions中使用唯一签名打包 / Electron 打包</h1>
         
 
         <div class="post-meta">
@@ -441,8 +441,15 @@
 <p>如果密码正确，会输出如下内容</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">密钥库类型: jks</span><br><span class="line">密钥库提供方: SUN</span><br><span class="line"></span><br><span class="line">您的密钥库包含 1 个条目</span><br><span class="line"></span><br><span class="line">key, 2020-9-11, PrivateKeyEntry,</span><br><span class="line">证书指纹 (SHA1): **********************</span><br><span class="line"></span><br><span class="line">Warning:</span><br><span class="line">JKS 密钥库使用专用格式。建议使用 <span class="string">"keytool -importkeystore -srckeystore /Users/shenyu/key.jks -destkeystore /Users/shenyu/key.jks -deststoretype pkcs12"</span> 迁移到行业标准格式 PKCS12。</span><br></pre></td></tr></table></figure>
 <p>如果你彻底忘了，那就重复一下官方文档的操作步骤喽。</p>
-<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>其实之前还做过electron多平台的打包。方法也是类似。需要将 apple 证书输出base64文本存在网盘，将该地址作为环境变量。但是当时屁事太多，没能记录下来，一些细节问题也都忘了。这个坑先留着，下次出问题了我再记录一下。</p>
-<p>参考: <a href="https://www.electron.build/code-signing.html#travis-appveyor-and-other-ci-servers" target="_blank" rel="noopener">https://www.electron.build/code-signing.html#travis-appveyor-and-other-ci-servers</a></p>
+<h2 id="Electron-builder"><a href="#Electron-builder" class="headerlink" title="Electron-builder"></a>Electron-builder</h2><p><del>其实之前还做过electron多平台的打包。方法也是类似。需要将 apple 证书输出base64文本存在网盘，将该地址作为环境变量。但是当时屁事太多，没能记录下来，一些细节问题也都忘了。这个坑先留着，下次出问题了我再记录一下。</del></p>
+<p>需要签名的两个target是 win 的 appx 以及 mac 的 mas</p>
+<h3 id="自动发布"><a href="#自动发布" class="headerlink" title="自动发布"></a>自动发布</h3><p>electron-builder –publish always</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">publish:</span></span><br><span class="line"><span class="attr">- provider:</span> <span class="string">github</span></span><br><span class="line"><span class="attr">  repo:</span> <span class="string">projectname</span></span><br><span class="line"><span class="attr">  owner:</span> <span class="string">user/org</span></span><br></pre></td></tr></table></figure>
+<p>CI内增加 GH_TOKEN 环境变量，用于发布 release</p>
+<p>参考:</p>
+<p><a href="https://www.electron.build/code-signing.html#travis-appveyor-and-other-ci-servers" target="_blank" rel="noopener">https://www.electron.build/code-signing.html#travis-appveyor-and-other-ci-servers</a></p>
+<p><a href="https://github.com/LLK/scratch-desktop/blob/develop/scripts/electron-builder-wrapper.js" target="_blank" rel="noopener">https://github.com/LLK/scratch-desktop/blob/develop/scripts/electron-builder-wrapper.js</a></p>
+<p><a href="https://github.com/TurboWarp/desktop/blob/master/package.json#L47" target="_blank" rel="noopener">https://github.com/TurboWarp/desktop/blob/master/package.json#L47</a></p>
 
       
     </div>
@@ -663,7 +670,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#原因"><span class="nav-number">1.</span> <span class="nav-text">原因</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用环境"><span class="nav-number">2.</span> <span class="nav-text">使用环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#官方文档"><span class="nav-number">3.</span> <span class="nav-text">官方文档</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#缺陷"><span class="nav-number">3.1.</span> <span class="nav-text">缺陷</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#与Github-Actions集成"><span class="nav-number">4.</span> <span class="nav-text">与Github Actions集成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如果这个签名的-password-忘记了"><span class="nav-number">5.</span> <span class="nav-text">如果这个签名的 password 忘记了</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他"><span class="nav-number">6.</span> <span class="nav-text">其他</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#原因"><span class="nav-number">1.</span> <span class="nav-text">原因</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用环境"><span class="nav-number">2.</span> <span class="nav-text">使用环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#官方文档"><span class="nav-number">3.</span> <span class="nav-text">官方文档</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#缺陷"><span class="nav-number">3.1.</span> <span class="nav-text">缺陷</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#与Github-Actions集成"><span class="nav-number">4.</span> <span class="nav-text">与Github Actions集成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如果这个签名的-password-忘记了"><span class="nav-number">5.</span> <span class="nav-text">如果这个签名的 password 忘记了</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Electron-builder"><span class="nav-number">6.</span> <span class="nav-text">Electron-builder</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#自动发布"><span class="nav-number">6.1.</span> <span class="nav-text">自动发布</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -857,7 +864,7 @@
         var disqus_config = function () {
           this.page.url = 'http://summerscar.me/2020/11/06/flutter-项目使用-github-actions/';
           this.page.identifier = '2020/11/06/flutter-项目使用-github-actions/';
-          this.page.title = 'Flutter项目在Github Actions中使用唯一签名打包';
+          this.page.title = 'Flutter项目在Github Actions中使用唯一签名打包 / Electron 打包';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://summerscar.disqus.com/embed.js';
