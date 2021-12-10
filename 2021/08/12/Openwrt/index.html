@@ -1,0 +1,1334 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT, summerscar">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="前些天升了一下软路由固件，更新了不少新功能，刚好有空折腾一下 Openwrt。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Openwrt 折腾 Docker &#x2F; Home-assistant &#x2F; Coder-server">
+<meta property="og:url" content="http://summerscar.me/2021/08/12/Openwrt/index.html">
+<meta property="og:site_name" content="summerscar">
+<meta property="og:description" content="前些天升了一下软路由固件，更新了不少新功能，刚好有空折腾一下 Openwrt。">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://i.loli.net/2021/08/12/9FwVH5dnTMUNCPy.png">
+<meta property="og:image" content="https://i.loli.net/2021/08/12/aThrlI6ezFjuQX1.png">
+<meta property="og:image" content="https://i.loli.net/2021/08/12/MZ7Beot5WvOg6cC.png">
+<meta property="og:image" content="https://i.loli.net/2021/08/12/6acW1SZtXQNEChu.png">
+<meta property="og:image" content="https://i.loli.net/2021/08/12/a92owG8crV7upeF.png">
+<meta property="og:image" content="https://i.loli.net/2021/08/12/tgWVfn1aPq58HxU.png">
+<meta property="og:image" content="https://i.loli.net/2021/08/12/Jh7l1oDXMETmiNv.png">
+<meta property="og:image" content="https://i.loli.net/2021/08/12/YwMlOjx5f7F2GCU.png">
+<meta property="og:image" content="https://i.loli.net/2021/08/12/mVa14FdueKCEG3b.png">
+<meta property="og:image" content="https://i.loli.net/2021/08/12/LXDgfbCOSqix5QF.png">
+<meta property="og:image" content="https://i.loli.net/2021/08/12/NFLC2RK9en3vPTO.png">
+<meta property="og:image" content="https://i.loli.net/2021/08/12/ylbtDkdUuogJ2Rn.png">
+<meta property="og:image" content="https://i.loli.net/2021/08/12/NFLC2RK9en3vPTO.png">
+<meta property="og:image" content="https://i.loli.net/2021/08/12/aqAmpwRxfFsHUgL.png">
+<meta property="og:image" content="https://i.loli.net/2021/08/12/NFLC2RK9en3vPTO.png">
+<meta property="og:image" content="https://i.loli.net/2021/08/12/lg8PC1MhivaBWR4.png">
+<meta property="og:image" content="https://i.loli.net/2021/08/12/ZnGKefwxajyDrF9.png">
+<meta property="og:updated_time" content="2021-12-10T14:10:34.822Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Openwrt 折腾 Docker &#x2F; Home-assistant &#x2F; Coder-server">
+<meta name="twitter:description" content="前些天升了一下软路由固件，更新了不少新功能，刚好有空折腾一下 Openwrt。">
+<meta name="twitter:image" content="https://i.loli.net/2021/08/12/9FwVH5dnTMUNCPy.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://summerscar.me/2021/08/12/Openwrt/">
+
+
+
+
+
+  <title>Openwrt 折腾 Docker / Home-assistant / Coder-server | summerscar</title>
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-100106686-2', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?f4920480d16ba0509e59aedc000fc3f4";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">summerscar</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">blog</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://summerscar.me/2021/08/12/Openwrt/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="summerscar">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="summerscar">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Openwrt 折腾 Docker / Home-assistant / Coder-server</h1>
+        
+
+        <div class="post-meta">
+          
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-08-12T15:32:11+08:00">
+                2021-08-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2021/08/12/Openwrt/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/08/12/Openwrt/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <script src="/assets/js/APlayer.min.js"> </script><p>前些天升了一下软路由固件，更新了不少新功能，刚好有空折腾一下 Openwrt。</p>
+<a id="more"></a>
+<p>软路由配置:</p>
+<ul>
+<li>CPU： Intel(R) Celeron(R) CPU N2940 @ 1.83GHz : 4 Core 4 Thread</li>
+<li>SSD: 32G</li>
+<li>RAM: 2G</li>
+</ul>
+<h2 id="固件"><a href="#固件" class="headerlink" title="固件"></a>固件</h2><p><a href="https://www.right.com.cn/forum/thread-4113950-1-1.html" target="_blank" rel="noopener">恩山论坛OPENWRT专版</a></p>
+<h2 id="扩容磁盘"><a href="#扩容磁盘" class="headerlink" title="扩容磁盘"></a>扩容磁盘</h2><blockquote>
+<p>用于 Docker</p>
+</blockquote>
+<p>在op里点击 系统——磁盘管理——修改</p>
+<p><img src="https://i.loli.net/2021/08/12/9FwVH5dnTMUNCPy.png" alt="20210812160056"></p>
+<p>之后进入这个界面。填入扩容的大小</p>
+<p>格式化的时候，先确认要扩容的大小是否正确，正确的话就点击格式化，分区类型选择ext4，最后点击格式化</p>
+<p><img src="https://i.loli.net/2021/08/12/aThrlI6ezFjuQX1.png" alt="20210812160143"></p>
+<p>然后去挂载点页面，在系统——挂载点，将页面拉到底部位置，就能看到挂载点的设置</p>
+<p><img src="https://i.loli.net/2021/08/12/MZ7Beot5WvOg6cC.png" alt="20210812160256"></p>
+<p><img src="https://i.loli.net/2021/08/12/6acW1SZtXQNEChu.png" alt="挂载点挂载点"></p>
+<p>选择好uuid后，勾选启用此挂载点，在挂载点里面选择成作为Docker使用，然后点保存并应用。</p>
+<p>重启软路由</p>
+<p><img src="https://i.loli.net/2021/08/12/a92owG8crV7upeF.png" alt="20210812160351"></p>
+<h2 id="挂载-NAS-目录"><a href="#挂载-NAS-目录" class="headerlink" title="挂载 NAS 目录"></a>挂载 NAS 目录</h2><ol>
+<li>NFS 管理配置</li>
+</ol>
+<p><img src="https://i.loli.net/2021/08/12/tgWVfn1aPq58HxU.png" alt="20210812160514"></p>
+<p>2.NAS 文件夹设置</p>
+<p><img src="https://i.loli.net/2021/08/12/Jh7l1oDXMETmiNv.png" alt="20210812160907"></p>
+<p>3.进入Openwrt <code>/mnt/nfs/nas</code> 即可访问 NAS 对应文件夹</p>
+<h2 id="Home-assistant-接入-Openwrt"><a href="#Home-assistant-接入-Openwrt" class="headerlink" title="Home assistant 接入 Openwrt"></a>Home assistant 接入 Openwrt</h2><ol>
+<li>安装 luci-mod-rpc<br>禁用 check_signature， 刷新软件列表，搜索并安装</li>
+</ol>
+<p><img src="https://i.loli.net/2021/08/12/YwMlOjx5f7F2GCU.png" alt="20210812163421"></p>
+<p><img src="https://i.loli.net/2021/08/12/mVa14FdueKCEG3b.png" alt="20210812163534"></p>
+<ol start="2">
+<li>修改 /opt/homeassistant/configuration.yaml<br>(先安装HA， 见<a href="#Dockr-之-HomeAssistant">Dockr-之-HomeAssistant</a>)</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">device_tracker:</span><br><span class="line">  - platform: luci</span><br><span class="line">    host: ROUTER_IP_ADDRESS</span><br><span class="line">    username: YOUR_ADMIN_USERNAME</span><br><span class="line">    password: YOUR_ADMIN_PASSWORD</span><br></pre></td></tr></table></figure>
+<p><a href="https://www.home-assistant.io/integrations/luci/" target="_blank" rel="noopener">https://www.home-assistant.io/integrations/luci/</a></p>
+<ol start="3">
+<li>配置-服务-重启</li>
+</ol>
+<p><img src="https://i.loli.net/2021/08/12/LXDgfbCOSqix5QF.png" alt="20210812164029"></p>
+<h2 id="Dockr-之-HomeAssistant"><a href="#Dockr-之-HomeAssistant" class="headerlink" title="Dockr 之 HomeAssistant"></a>Dockr 之 HomeAssistant</h2><p>参考官方文档： <a href="https://www.home-assistant.io/installation/linux#platform-installation" target="_blank" rel="noopener">https://www.home-assistant.io/installation/linux#platform-installation</a></p>
+<ol start="0">
+<li><p>进入 /opt<br> 新建目录</p>
+ <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">homeassistant</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>启动 Docker 之后进入容器<br><img src="https://i.loli.net/2021/08/12/NFLC2RK9en3vPTO.png" alt="20210812161912"></p>
+</li>
+<li><p>选择解析CLI<br><img src="https://i.loli.net/2021/08/12/ylbtDkdUuogJ2Rn.png" alt="20210812162439"></p>
+ <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker run -d \</span><br><span class="line">--name homeassistant \</span><br><span class="line">--privileged \</span><br><span class="line">--restart=unless-stopped \</span><br><span class="line">-v /opt/homeassistant:/config \</span><br><span class="line">--network=host \</span><br><span class="line">ghcr.io/home-assistant/home-assistant:stable</span><br></pre></td></tr></table></figure>
+<p> 网络选为 host<br> 暴露所有端口</p>
+</li>
+<li><p>创建并启动</p>
+</li>
+<li><p>访问 [routerip]:8123</p>
+</li>
+</ol>
+<h2 id="Dockr-之-Nodered"><a href="#Dockr-之-Nodered" class="headerlink" title="Dockr 之 Nodered"></a>Dockr 之 Nodered</h2><p>参考官方文档： <a href="https://github.com/node-red/node-red-docker" target="_blank" rel="noopener">https://github.com/node-red/node-red-docker</a></p>
+<ol start="0">
+<li><p>进入 /opt<br> 新建目录</p>
+ <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">node-red</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>启动 Docker 之后进入容器<br><img src="https://i.loli.net/2021/08/12/NFLC2RK9en3vPTO.png" alt="20210812161912"></p>
+</li>
+<li><p>选择解析CLI<br><img src="https://i.loli.net/2021/08/12/aqAmpwRxfFsHUgL.png" alt="20210812162844"></p>
+ <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker run \</span><br><span class="line">-p 1880:1880 -v /opt/node-red:/data \</span><br><span class="line">-u root \</span><br><span class="line">--name nodered nodered/node-red</span><br></pre></td></tr></table></figure>
+<p> 网络选为 host</p>
+<p> 暴露所有端口</p>
+</li>
+<li><p>创建并启动</p>
+</li>
+<li><p>访问 [routerip]:1880</p>
+</li>
+</ol>
+<h2 id="Dockr-之-Code-Server"><a href="#Dockr-之-Code-Server" class="headerlink" title="Dockr 之 Code Server"></a>Dockr 之 Code Server</h2><blockquote>
+<p>web版vscode 实测 npm install 还能勉强使用， start 一个小项目路由器直接崩了</p>
+</blockquote>
+<ol start="0">
+<li><p>进入 /opt<br> 新建目录结构</p>
+ <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">code-server</span><br><span class="line">- .conf</span><br><span class="line">- projects</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>启动 Docker 之后进入容器<br><img src="https://i.loli.net/2021/08/12/NFLC2RK9en3vPTO.png" alt="20210812161912"></p>
+</li>
+<li><p>选择解析CLI<br><img src="https://i.loli.net/2021/08/12/lg8PC1MhivaBWR4.png" alt="20210812161356"></p>
+ <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker run -d --name code-server \</span><br><span class="line">-p 8080:8080 \</span><br><span class="line">-v &quot;/opt/code-server/.config:/home/coder/.config&quot; \</span><br><span class="line">-v &quot;/opt/code-server/projects:/home/coder/project&quot; \</span><br><span class="line">-u &quot;coder&quot; \</span><br><span class="line">-e &quot;DOCKER_USER=coder&quot; \</span><br><span class="line">codercom/code-server:latest</span><br></pre></td></tr></table></figure>
+<p> 网络选为 host</p>
+<p> 暴露所有端口</p>
+</li>
+<li><p>创建并启动</p>
+</li>
+<li><p>访问 [routerip]:8080</p>
+</li>
+</ol>
+<p><img src="https://i.loli.net/2021/08/12/ZnGKefwxajyDrF9.png" alt="20210812163226"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/07/01/插件编写完全指南/" rel="next" title="Scratch 插件编写完全指南">
+                <i class="fa fa-chevron-left"></i> Scratch 插件编写完全指南
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2021/12/10/scratch-vm-dispatch分析/" rel="prev" title="scratch-vm dispatch分析">
+                scratch-vm dispatch分析 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="summerscar">
+            
+              <p class="site-author-name" itemprop="name">summerscar</p>
+              <p class="site-description motion-element" itemprop="description">不会日语的up主不是一个好程序猿</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">75</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/summerscar" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://weibo.com/5508256828" target="_blank" title="Weibo">
+                      
+                        <i class="fa fa-fw fa-globe"></i>Weibo</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:shen.yus@163.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://space.bilibili.com/5248611/" target="_blank" title="BILIBILI">
+                      
+                        <i class="fa fa-fw fa-globe"></i>BILIBILI</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://instagram.com/summerscar1996" target="_blank" title="Instagram">
+                      
+                        <i class="fa fa-fw fa-instagram"></i>Instagram</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#固件"><span class="nav-number">1.</span> <span class="nav-text">固件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#扩容磁盘"><span class="nav-number">2.</span> <span class="nav-text">扩容磁盘</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#挂载-NAS-目录"><span class="nav-number">3.</span> <span class="nav-text">挂载 NAS 目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Home-assistant-接入-Openwrt"><span class="nav-number">4.</span> <span class="nav-text">Home assistant 接入 Openwrt</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Dockr-之-HomeAssistant"><span class="nav-number">5.</span> <span class="nav-text">Dockr 之 HomeAssistant</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Dockr-之-Nodered"><span class="nav-number">6.</span> <span class="nav-text">Dockr 之 Nodered</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Dockr-之-Code-Server"><span class="nav-number">7.</span> <span class="nav-text">Dockr 之 Code Server</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">summerscar</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a></div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//tajs.qq.com/stats?sId=62548480";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://summerscar.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://summerscar.me/2021/08/12/Openwrt/';
+          this.page.identifier = '2021/08/12/Openwrt/';
+          this.page.title = 'Openwrt 折腾 Docker / Home-assistant / Coder-server';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://summerscar.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/love.js"></script>
+  
+<div id="hexo-helper-live2d">
+  <canvas id="live2dcanvas" width="150" height="300"></canvas>
+</div>
+<style>
+  #live2dcanvas{
+    position: fixed;
+    width: 150px;
+    height: 300px;
+    opacity:0.9;
+    right: 50px;
+    z-index: 999;
+    pointer-events: none;
+    bottom: -30px;
+  }
+</style>
+<script type="text/javascript" src="/live2d/device.min.js"></script>
+<script type="text/javascript">
+const loadScript = function loadScript(c,b){var a=document.createElement("script");a.type="text/javascript";"undefined"!=typeof b&&(a.readyState?a.onreadystatechange=function(){if("loaded"==a.readyState||"complete"==a.readyState)a.onreadystatechange=null,b()}:a.onload=function(){b()});a.src=c;document.body.appendChild(a)};
+(function(){
+  if((typeof(device) != 'undefined') && (device.mobile())){
+    document.getElementById("live2dcanvas").style.width = '75px';
+    document.getElementById("live2dcanvas").style.height = '150px';
+  }else
+    if (typeof(device) === 'undefined') console.error('Cannot find current-device script.');
+  loadScript("/live2d/script.js", function(){loadlive2d("live2dcanvas", "/live2d/assets/makoto0.model.json", 0.5);});
+})();
+</script>
+
+</body>
+</html>
