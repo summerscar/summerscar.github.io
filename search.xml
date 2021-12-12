@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Turbowarp compiler]]></title>
+    <url>%2F2021%2F12%2F12%2FTurbowarp-compiler%2F</url>
+    <content type="text"><![CDATA[Turbowarp JIT 即时编译解析 Blocks AST -&gt; Blocks 中间码 -&gt; js闭包函数 https://www.notion.so/Turbowarp-compiler-509814e96eea4717bd00566142a0b470]]></content>
+      <tags>
+        <tag>Code</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[comlink 原理]]></title>
     <url>%2F2021%2F12%2F10%2Fcomlink-%E5%8E%9F%E7%90%86%2F</url>
     <content type="text"><![CDATA[Comlink通过提供一个RPC实现，将这种基于消息的API变成了对开发者更友好的东西。一个线程的值可以在另一个线程中使用（反之亦然），就像本地值一样。 ScratchAddons 项目使用这个库，用于在chrome extension中同步 contentScript 与 pagescript 的数据。 https://www.notion.so/Comlink-d15ec2f02cf948a3b3cd2c02cca9d78e]]></content>

@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT, summerscar">
+  <meta name="keywords" content="Code,">
 
 
 
@@ -86,16 +86,18 @@
 
 
 
-<meta name="description" content="不会日语的up主不是一个好程序猿">
-<meta property="og:type" content="website">
-<meta property="og:title" content="summerscar">
-<meta property="og:url" content="http://summerscar.me/categories/Code/index.html">
+<meta name="description" content="Turbowarp JIT 即时编译解析 Blocks AST -&amp;gt; Blocks 中间码 -&amp;gt; js闭包函数">
+<meta name="keywords" content="Code">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Turbowarp compiler">
+<meta property="og:url" content="http://summerscar.me/2021/12/12/Turbowarp-compiler/index.html">
 <meta property="og:site_name" content="summerscar">
-<meta property="og:description" content="不会日语的up主不是一个好程序猿">
+<meta property="og:description" content="Turbowarp JIT 即时编译解析 Blocks AST -&amp;gt; Blocks 中间码 -&amp;gt; js闭包函数">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2021-12-12T11:52:16.964Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="summerscar">
-<meta name="twitter:description" content="不会日语的up主不是一个好程序猿">
+<meta name="twitter:title" content="Turbowarp compiler">
+<meta name="twitter:description" content="Turbowarp JIT 即时编译解析 Blocks AST -&amp;gt; Blocks 中间码 -&amp;gt; js闭包函数">
 
 
 
@@ -125,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="http://summerscar.me/categories/Code/">
+  <link rel="canonical" href="http://summerscar.me/2021/12/12/Turbowarp-compiler/">
 
 
 
 
 
-  <title>Category: Code | summerscar</title>
+  <title>Turbowarp compiler | summerscar</title>
   
 
 
@@ -169,7 +171,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -305,291 +307,166 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block category">
-
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>Code<small>Category</small>
-        </h1>
-      </div>
-
-      
-        
 
   <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://summerscar.me/2021/12/12/Turbowarp-compiler/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="summerscar">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="summerscar">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2021/12/10/comlink-原理/" itemprop="url">
-              
-                <span itemprop="name">comlink 原理</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">Turbowarp compiler</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2021-12-10T22:06:44+08:00" content="2021-12-10">
-          12-10
-        </time>
-      </div>
+        <div class="post-meta">
+          
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-12-12T19:50:52+08:00">
+                2021-12-12
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2021/12/12/Turbowarp-compiler/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2021/12/12/Turbowarp-compiler/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2021/12/10/scratch-vm-dispatch分析/" itemprop="url">
-              
-                <span itemprop="name">scratch-vm dispatch分析</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2021-12-10T22:02:23+08:00" content="2021-12-10">
-          12-10
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+      
 
       
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2021/07/01/插件编写完全指南/" itemprop="url">
-              
-                <span itemprop="name">Scratch 插件编写完全指南</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2021-07-01T16:31:57+08:00" content="2021-07-01">
-          07-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2021/04/07/while-true-阻塞/" itemprop="url">
-              
-                <span itemprop="name">while (true) !== 阻塞</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2021-04-07T15:30:09+08:00" content="2021-04-07">
-          04-07
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2021/03/18/Switch动画/" itemprop="url">
-              
-                <span itemprop="name">Switch动画</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2021-03-18T17:57:38+08:00" content="2021-03-18">
-          03-18
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2021/03/17/FLIP动画/" itemprop="url">
-              
-                <span itemprop="name">FLIP动画</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2021-03-17T18:49:19+08:00" content="2021-03-17">
-          03-17
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2020/05/04/一个关于字符的玄学问题/" itemprop="url">
-              
-                <span itemprop="name">一个关于字符的玄学问题</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-05-04T20:59:56+08:00" content="2020-05-04">
-          05-04
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/10/12/vue中使用typescript/" itemprop="url">
-              
-                <span itemprop="name">vue中使用typescript</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-10-12T16:19:31+08:00" content="2019-10-12">
-          10-12
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/01/25/Promise的外部处理/" itemprop="url">
-              
-                <span itemprop="name">Promise的外部处理</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-01-25T10:02:41+08:00" content="2019-01-25">
-          01-25
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/01/04/scrath插件对外通信/" itemprop="url">
-              
-                <span itemprop="name">scrath3.0 插件对外通信</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-01-04T23:08:58+08:00" content="2019-01-04">
-          01-04
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+        <script src="/assets/js/APlayer.min.js"> </script><p>Turbowarp JIT 即时编译解析</p>
+<p>Blocks AST -&gt; Blocks 中间码 -&gt; js闭包函数</p>
+<a id="more"></a>
+<p><a href="https://www.notion.so/Turbowarp-compiler-509814e96eea4717bd00566142a0b470" target="_blank" rel="noopener">https://www.notion.so/Turbowarp-compiler-509814e96eea4717bd00566142a0b470</a></p>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Code/" rel="tag"># Code</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/12/10/comlink-原理/" rel="next" title="comlink 原理">
+                <i class="fa fa-chevron-left"></i> comlink 原理
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/categories/Code/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/categories/Code/page/5/">5</a><a class="extend next" rel="next" href="/categories/Code/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
+  </article>
 
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -597,6 +474,20 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -876,6 +767,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -893,6 +788,18 @@
       <script id="dsq-count-scr" src="https://summerscar.disqus.com/count.js" async></script>
     
 
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://summerscar.me/2021/12/12/Turbowarp-compiler/';
+          this.page.identifier = '2021/12/12/Turbowarp-compiler/';
+          this.page.title = 'Turbowarp compiler';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://summerscar.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
     
 
   
